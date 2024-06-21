@@ -43,3 +43,12 @@ export const SectionHeaderSubtitle = styled.span`
     color: #e0a449;
     text-align: center;
 `
+
+export const ReducedArtworksList = styled.ul`
+    margin: 0 auto;
+    list-style: none;    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 1280px;
+`

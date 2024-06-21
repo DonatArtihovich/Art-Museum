@@ -2,16 +2,7 @@ import { imagePath } from "@constants/api"
 import {
     ActivePageNumber,
     ArrowButton,
-    ArtworkArtistName,
-    ArtworkCardInfoWrapper,
-    ArtworkCardTextHeader,
-    ArtworkCardTextInfoWrapper,
-    ArtworkCardTitle,
-    ArtworkCardWrapper,
     ArtworkCardsList,
-    ArtworkPrivateInfoText,
-    ArtworkSaveButton,
-    ArtworkSaveImage,
     GallerySliderWrapper,
     LeftPaginationArrowImage,
     NumbersWrapper,
@@ -19,49 +10,14 @@ import {
     PaginationWrapper,
     RightPaginationArrowImage
 } from "./styled";
-import bookmarkImage from '@assets/images/bookmark.svg'
 import arrowImage from '@assets/images/arrow.svg'
 import { useEffect, useState } from "react";
 import { getArtworks } from "@utils/api";
+import { FullArtworkCard } from "@components/artwork-card";
 
 type GallerySliderProps = {
     query: string;
 }
-
-type ArtworkCardProps = {
-    image: string;
-    title: string;
-    artist: string;
-    isPublic: boolean;
-}
-
-const ArtworkCard = ({
-    image,
-    title,
-    artist,
-    isPublic
-}: ArtworkCardProps) => (
-    <ArtworkCardWrapper
-        style={{
-            backgroundImage: `url(${image})`
-        }}
-    >
-        <ArtworkCardInfoWrapper>
-            <ArtworkCardTextInfoWrapper>
-                <ArtworkCardTextHeader>
-                    <ArtworkCardTitle>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitle>
-                    <ArtworkArtistName>{artist}</ArtworkArtistName>
-                </ArtworkCardTextHeader>
-                <ArtworkPrivateInfoText>
-                    {isPublic ? 'Public' : 'Private'}
-                </ArtworkPrivateInfoText>
-            </ArtworkCardTextInfoWrapper>
-            <ArtworkSaveButton>
-                <ArtworkSaveImage src={bookmarkImage} />
-            </ArtworkSaveButton>
-        </ArtworkCardInfoWrapper>
-    </ArtworkCardWrapper>
-)
 
 const Pagination = ({ page, setPage, totalPages }: {
     page: number;
@@ -111,7 +67,7 @@ export default function GallerySlider({ query }: GallerySliderProps) {
         <GallerySliderWrapper>
             <ArtworkCardsList>
                 {artworks?.data.map(item => (
-                    <ArtworkCard
+                    <FullArtworkCard
                         title={item.title}
                         image={imagePath(item.image_id)}
                         artist={item.artist_title}
