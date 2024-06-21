@@ -38,6 +38,21 @@ export const ArtworkCardInfoWrapper = styled.div`
 export const ArtworkCardTextInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 8px;
+`
+
+export const ArtworkCardTextHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const ArtworkPrivateInfoText = styled.span`
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 171%;
+    letter-spacing: -0.01em;
+    color: #393939;
 `
 
 export const ArtworkCardTitle = styled.h3`
@@ -50,7 +65,7 @@ export const ArtworkCardTitle = styled.h3`
     margin: 0;
 `
 
-export const ArtworkArtistName = styled.p`
+export const ArtworkArtistName = styled.span`
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 15px;

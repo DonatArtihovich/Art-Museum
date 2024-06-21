@@ -4,10 +4,12 @@ import {
     ArrowButton,
     ArtworkArtistName,
     ArtworkCardInfoWrapper,
+    ArtworkCardTextHeader,
     ArtworkCardTextInfoWrapper,
     ArtworkCardTitle,
     ArtworkCardWrapper,
     ArtworkCardsList,
+    ArtworkPrivateInfoText,
     ArtworkSaveButton,
     ArtworkSaveImage,
     GallerySliderWrapper,
@@ -30,12 +32,14 @@ type ArtworkCardProps = {
     image: string;
     title: string;
     artist: string;
+    isPublic: boolean;
 }
 
 const ArtworkCard = ({
     image,
     title,
-    artist
+    artist,
+    isPublic
 }: ArtworkCardProps) => (
     <ArtworkCardWrapper
         style={{
@@ -44,8 +48,13 @@ const ArtworkCard = ({
     >
         <ArtworkCardInfoWrapper>
             <ArtworkCardTextInfoWrapper>
-                <ArtworkCardTitle>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitle>
-                <ArtworkArtistName>{artist}</ArtworkArtistName>
+                <ArtworkCardTextHeader>
+                    <ArtworkCardTitle>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitle>
+                    <ArtworkArtistName>{artist}</ArtworkArtistName>
+                </ArtworkCardTextHeader>
+                <ArtworkPrivateInfoText>
+                    {isPublic ? 'Public' : 'Private'}
+                </ArtworkPrivateInfoText>
             </ArtworkCardTextInfoWrapper>
             <ArtworkSaveButton>
                 <ArtworkSaveImage src={bookmarkImage} />
@@ -106,6 +115,7 @@ export default function GallerySlider({ query }: GallerySliderProps) {
                         title={item.title}
                         image={imagePath(item.image_id)}
                         artist={item.artist_title}
+                        isPublic={item.is_public_domain}
                         key={item.id}
                     />
                 ))}
