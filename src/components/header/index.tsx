@@ -21,7 +21,7 @@ const NavLink = ({
     </Link>
 )
 
-export function Header() {
+export default function Header() {
     const location = useLocation()
 
     return (
