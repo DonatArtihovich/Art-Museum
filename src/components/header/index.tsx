@@ -1,5 +1,5 @@
 import { HeaderContent, HeaderWrapper, LogoImage, NavList, NavListItem, NavListItemImage, NavListItemTitle } from "./styled";
-import logoImage from '@assets/images/logo.svg';
+import logoImage from '@assets/images/dark-logo.svg';
 import homeImage from '@assets/images/home.svg'
 import bookmarkImage from '@assets/images/bookmark.svg'
 import { Link, useLocation } from "react-router-dom";
