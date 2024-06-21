@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 127px;
     background: linear-gradient(90deg, #343333 16.73%, #484848 58.63%, #282828 98.63%);
 `
 
 export const HeaderContent = styled.div`
-    width: 100vw;
+    width: 100%;
     max-width: 1280px;
     height: 100%;
     margin: 0 auto;
