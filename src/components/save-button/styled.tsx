@@ -6,6 +6,7 @@ export const ArtworkSaveButton = styled.button`
     width: 59px;
     height: 59px;
     border: none;
+    pointer-events: auto;
 
     &:hover {
         cursor: pointer;

@@ -37,6 +37,7 @@ export const ArtworkCardInfoWrapper = styled.div`
     background: #fff;
     z-index: 10;
     justify-content: space-between;
+    pointer-events: none;
 `
 
 
@@ -87,6 +88,7 @@ export const ArtworkCardTitleLink = styled(Link)`
     color: #393939;
     margin: 0;
     text-decoration: none;
+    pointer-events: auto;
 
     &:hover {
         text-decoration: underline;
