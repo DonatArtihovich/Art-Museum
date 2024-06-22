@@ -63,24 +63,6 @@ export const ArtworkArtistName = styled.span`
     color: #e0a449;
 `
 
-export const ArtworkSaveButton = styled.button`
-    border-radius: 35px;
-    padding: 17px;
-    width: 59px;
-    height: 59px;
-    background: rgba(251, 215, 178, 0.3);
-    border: none;
-
-    &:hover {
-        cursor: pointer;
-    }
-`
-
-export const ArtworkSaveImage = styled.img`
-    width: 25px;
-    height: 25px;
-`
-
 export const ReducedArtworkCardWrapper = styled.div`
     border: 1px solid #f0f1f1;
     padding: 16px;

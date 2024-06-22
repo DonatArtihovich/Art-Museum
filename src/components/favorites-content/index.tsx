@@ -1,11 +1,19 @@
 import { SectionHeader } from "@components/section-header";
-import { FavoritesWrapper, HeaderIcon, HeaderText, SpecialHeaderText, SpecialHeaderTextWrapper } from "./styled";
+import {
+    FavoritesWrapper,
+    HeaderIcon,
+    HeaderText,
+    SpecialHeaderText,
+    SpecialHeaderTextWrapper,
+    NoFavoritesText
+} from "./styled";
 import headerIcon from '@assets/images/favorites-header-icon.svg';
-import { getSavedArtworks } from "@utils/storage";
 import { ReducedArtworksList } from "@components/reduced-artworks-list";
+import { useRequiredContext } from "@utils/react/hooks";
+import { StorageContext } from "@utils/react/storage-context";
 
 export default function FavoritesContent() {
-    const savedArtworks = getSavedArtworks();
+    const { savedArtworks } = useRequiredContext(StorageContext);
 
     return (
         <FavoritesWrapper>
@@ -21,7 +29,10 @@ export default function FavoritesContent() {
                     title='Your favorites list'
                     subtitle='Saved by you'
                 />
-                <ReducedArtworksList artworks={savedArtworks} />
+                {savedArtworks.length
+                    ? <ReducedArtworksList artworks={savedArtworks} />
+                    : <NoFavoritesText>You haven't saved anything yet</NoFavoritesText>
+                }
             </section>
         </FavoritesWrapper>
     )

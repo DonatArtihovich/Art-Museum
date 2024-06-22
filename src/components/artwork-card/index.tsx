@@ -6,16 +6,13 @@ import {
     ArtworkCardTitle,
     ArtworkCardWrapper,
     ArtworkPrivateInfoText,
-    ArtworkSaveButton,
-    ArtworkSaveImage,
     ReducedArtworkCardImage,
     ReducedArtworkCardWrapper,
     ReducedArtworkInfoWrapper
 } from "./styled";
 import noImage from '@assets/images/no-image.svg'
-import bookmarkImage from '@assets/images/bookmark.svg'
-import { saveArtwork } from "@utils/storage";
 import { imagePath } from "@constants/api";
+import { ArtworkSaveButton } from "@components/save-button";
 
 type ArtworkCardProps = {
     id: string;
@@ -48,16 +45,14 @@ export const FullArtworkCard = ({
                 </ArtworkPrivateInfoText>
             </ArtworkCardTextInfoWrapper>
             <ArtworkSaveButton
-                onClick={() => saveArtwork({
+                artwork={{
                     id,
                     image_id: image,
                     title,
                     artist_title: artist,
                     is_public_domain: isPublic
-                })}
-            >
-                <ArtworkSaveImage src={bookmarkImage} />
-            </ArtworkSaveButton>
+                }}
+            />
         </ArtworkCardInfoWrapper>
     </ArtworkCardWrapper>
 )
@@ -84,15 +79,13 @@ export const ReducedArtworkCard = ({
         </ReducedArtworkInfoWrapper>
 
         <ArtworkSaveButton
-            onClick={() => saveArtwork({
+            artwork={{
                 id,
                 image_id: image,
                 title,
                 artist_title: artist,
                 is_public_domain: isPublic
-            })}
-        >
-            <ArtworkSaveImage src={bookmarkImage} />
-        </ArtworkSaveButton>
+            }}
+        />
     </ReducedArtworkCardWrapper>
 )

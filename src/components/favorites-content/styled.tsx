@@ -30,3 +30,12 @@ export const SpecialHeaderTextWrapper = styled.div`
     display: flex;
     align-items: center;
 `
+export const NoFavoritesText = styled.p`
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 34px;
+    text-transform: capitalize;
+    text-align: center;
+    color: #393939;
+`
