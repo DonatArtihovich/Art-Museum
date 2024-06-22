@@ -1,4 +1,12 @@
-import { HeaderContent, HeaderWrapper, LogoImage, NavList, NavListItem, NavListItemImage, NavListItemTitle } from "./styled";
+import {
+    HeaderContent,
+    HeaderWrapper,
+    LogoImage,
+    NavList,
+    NavListItem,
+    NavListItemImage,
+    NavListItemTitle
+} from "./styled";
 import logoImage from '@assets/images/dark-logo.svg';
 import homeImage from '@assets/images/home.svg'
 import bookmarkImage from '@assets/images/bookmark.svg'
@@ -28,7 +36,6 @@ export default function Header() {
         <HeaderWrapper>
             <HeaderContent>
                 <LogoImage src={logoImage} />
-
                 <nav>
                     <NavList>
                         {location.pathname !== '/' && <NavLink
@@ -37,14 +44,13 @@ export default function Header() {
                             text='Home'
                         />}
                         <NavLink
-                            link='/favourites'
+                            link='/favorites'
                             image={bookmarkImage}
-                            text='Your favourites'
+                            text='Your favorites'
                         />
                     </NavList>
                 </nav>
             </HeaderContent>
-
         </HeaderWrapper>
     )
 }

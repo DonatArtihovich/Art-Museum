@@ -14,8 +14,11 @@ import {
 } from "./styled";
 import noImage from '@assets/images/no-image.svg'
 import bookmarkImage from '@assets/images/bookmark.svg'
+import { saveArtwork } from "@utils/storage";
+import { imagePath } from "@constants/api";
 
 type ArtworkCardProps = {
+    id: string;
     image: string;
     title: string;
     artist: string;
@@ -23,6 +26,7 @@ type ArtworkCardProps = {
 }
 
 export const FullArtworkCard = ({
+    id,
     image,
     title,
     artist,
@@ -30,7 +34,7 @@ export const FullArtworkCard = ({
 }: ArtworkCardProps) => (
     <ArtworkCardWrapper
         style={{
-            backgroundImage: `url(${image ?? noImage})`
+            backgroundImage: `url(${image ? imagePath(image) : noImage})`
         }}
     >
         <ArtworkCardInfoWrapper>
@@ -43,7 +47,15 @@ export const FullArtworkCard = ({
                     {isPublic ? 'Public' : 'Private'}
                 </ArtworkPrivateInfoText>
             </ArtworkCardTextInfoWrapper>
-            <ArtworkSaveButton>
+            <ArtworkSaveButton
+                onClick={() => saveArtwork({
+                    id,
+                    image_id: image,
+                    title,
+                    artist_title: artist,
+                    is_public_domain: isPublic
+                })}
+            >
                 <ArtworkSaveImage src={bookmarkImage} />
             </ArtworkSaveButton>
         </ArtworkCardInfoWrapper>
@@ -51,6 +63,7 @@ export const FullArtworkCard = ({
 )
 
 export const ReducedArtworkCard = ({
+    id,
     image,
     title,
     artist,
@@ -58,10 +71,10 @@ export const ReducedArtworkCard = ({
 }: ArtworkCardProps) => (
     <ReducedArtworkCardWrapper>
         <ReducedArtworkInfoWrapper>
-            <ReducedArtworkCardImage src={image ?? noImage} />
+            <ReducedArtworkCardImage src={image ? imagePath(image) : noImage} />
             <ArtworkCardTextInfoWrapper>
                 <ArtworkCardTextHeader>
-                    <ArtworkCardTitle>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitle>
+                    <ArtworkCardTitle>{title.length > 20 ? `${title.slice(0, 20)}...` : title}</ArtworkCardTitle>
                     <ArtworkArtistName>{artist}</ArtworkArtistName>
                 </ArtworkCardTextHeader>
                 <ArtworkPrivateInfoText>
@@ -70,7 +83,15 @@ export const ReducedArtworkCard = ({
             </ArtworkCardTextInfoWrapper>
         </ReducedArtworkInfoWrapper>
 
-        <ArtworkSaveButton>
+        <ArtworkSaveButton
+            onClick={() => saveArtwork({
+                id,
+                image_id: image,
+                title,
+                artist_title: artist,
+                is_public_domain: isPublic
+            })}
+        >
             <ArtworkSaveImage src={bookmarkImage} />
         </ArtworkSaveButton>
     </ReducedArtworkCardWrapper>

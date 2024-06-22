@@ -26,7 +26,8 @@ export const ArtworkCardInfoWrapper = styled.div`
 export const ArtworkCardTextInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    justify-content: space-between;
+    height: 98px;
 `
 
 export const ArtworkCardTextHeader = styled.div`

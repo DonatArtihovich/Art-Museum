@@ -2,17 +2,13 @@ import { Input } from "@components/search-input";
 import {
     HeaderText,
     MainWrapper,
-    ReducedArtworksList,
-    SectionHeader,
-    SectionHeaderSubtitle,
-    SectionHeaderTitle,
     SpecialHeaderText
 } from "./styled";
 import GallerySlider from "@components/gallery-slider";
 import { useEffect, useState } from "react";
 import { getArtworks } from "@utils/api";
-import { ReducedArtworkCard } from "@components/artwork-card";
-import { imagePath } from "@constants/api";
+import { SectionHeader } from "@components/section-header";
+import { ReducedArtworksList } from "@components/reduced-artworks-list";
 
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
@@ -39,27 +35,23 @@ export default function MainContent() {
             />
 
             <section>
-                <SectionHeader>
-                    <SectionHeaderSubtitle>Topics for you</SectionHeaderSubtitle>
-                    <SectionHeaderTitle>Our special gallery</SectionHeaderTitle>
-                </SectionHeader>
+                <SectionHeader
+                    title='Our special gallery'
+                    subtitle='Topics for you'
+                />
                 <GallerySlider query={query} />
             </section>
-            <section>
-                <SectionHeader>
-                    <SectionHeaderSubtitle>Here some more</SectionHeaderSubtitle>
-                    <SectionHeaderTitle>Other works for you</SectionHeaderTitle>
-                </SectionHeader>
-                <ReducedArtworksList>
-                    {artworks?.data.map(item => <ReducedArtworkCard
-                        image={imagePath(item.image_id)}
-                        title={item.title}
-                        artist={item.artist_title}
-                        isPublic={item.is_public_domain}
-                        key={item.id}
-                    />)}
-                </ReducedArtworksList>
-            </section>
-        </MainWrapper>
+            {artworks &&
+                <section>
+                    <SectionHeader
+                        title='Other works for you'
+                        subtitle='Here some more'
+                    />
+                    <ReducedArtworksList
+                        artworks={artworks?.data}
+                    />
+                </section>
+            }
+        </MainWrapper >
     )
 }

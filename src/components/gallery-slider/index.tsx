@@ -1,4 +1,3 @@
-import { imagePath } from "@constants/api"
 import {
     ActivePageNumber,
     ArrowButton,
@@ -68,8 +67,9 @@ export default function GallerySlider({ query }: GallerySliderProps) {
             <ArtworkCardsList>
                 {artworks?.data.map(item => (
                     <FullArtworkCard
+                        id={item.id}
                         title={item.title}
-                        image={imagePath(item.image_id)}
+                        image={item.image_id}
                         artist={item.artist_title}
                         isPublic={item.is_public_domain}
                         key={item.id}
