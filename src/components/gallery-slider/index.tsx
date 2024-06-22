@@ -18,6 +18,7 @@ import Loader from "@components/loader";
 
 type GallerySliderProps = {
     query: string;
+    sorting: string;
 }
 
 const Pagination = ({ page, setPage, totalPages }: {
@@ -52,7 +53,7 @@ const Pagination = ({ page, setPage, totalPages }: {
     </PaginationWrapper>
 )
 
-export default function GallerySlider({ query }: GallerySliderProps) {
+export default function GallerySlider({ query, sorting }: GallerySliderProps) {
     const [page, setPage] = useState<number>(1);
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
     const [isPending, setIsPending] = useState<boolean>(true);
@@ -82,7 +83,7 @@ export default function GallerySlider({ query }: GallerySliderProps) {
                             totalPages={artworks.totalPages}
                         />}
                 </GallerySliderWrapper>
-                : <NoArtworksText>We haven't searched anything</NoArtworksText>
+                : <NoArtworksText>We didn't find anything</NoArtworksText>
             : <Loader />
     )
 }

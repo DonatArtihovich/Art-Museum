@@ -1,12 +1,21 @@
 import { InputHTMLAttributes } from "react";
-import { SearchInputWrapper, SearchInput, SearchImage } from "./styled";
+import { SearchInputWrapper, SearchInput, SearchImage, SearchButton, Wrapper, ErrorText } from "./styled";
 import searchImage from '@assets/images/search.svg'
 
-export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
+export function Input(props: InputHTMLAttributes<HTMLInputElement> &
+{
+    onButtonClick: React.MouseEventHandler;
+    error: string | undefined;
+}) {
     return (
-        <SearchInputWrapper>
-            <SearchInput {...props} />
-            <SearchImage src={searchImage} />
-        </SearchInputWrapper>
+        <Wrapper>
+            <SearchInputWrapper>
+                <SearchInput {...props} />
+                <SearchButton type='submit'>
+                    <SearchImage src={searchImage} />
+                </SearchButton>
+            </SearchInputWrapper>
+            {props.error && <ErrorText>{props.error}</ErrorText>}
+        </Wrapper>
     )
 }

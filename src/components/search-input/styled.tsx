@@ -29,3 +29,26 @@ export const SearchImage = styled.img`
     width: 32px;
     height: 32px;
 `
+
+export const SearchButton = styled.button`
+    background: transparent;
+    border: none;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+export const Wrapper = styled.div`
+   position: relative;
+`
+
+export const ErrorText = styled.p`
+    font-family: var(--second-family);
+    color: red;
+    font-size: 16px;
+    text-transform: underline;
+    position: absolute;
+    top: 80%;
+`

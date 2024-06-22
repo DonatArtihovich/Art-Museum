@@ -1,18 +1,53 @@
 import { Input } from "@components/search-input";
+import { SearchSelect } from "@components/search-select";
+import { formSchema } from "@utils/form";
+import { Formik } from "formik";
 
 type SearchFormProps = {
-    query: string;
     setQuery: (query: string) => void;
+    setSorting: (sorting: string) => void;
 }
 
-export function SearchForm({ query, setQuery }: SearchFormProps) {
+export function SearchForm({ setQuery, setSorting }: SearchFormProps) {
     return (
-        <form action="">
-            <Input
-                placeholder='Search art, artist, work...'
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-                value={query}
-            />
-        </form>
+        <Formik
+            initialValues={{ query: '', sort: '' }}
+            validationSchema={formSchema}
+            onSubmit={(values, { setSubmitting }) => {
+                setQuery(values.query);
+                setSorting(values.sort)
+                setSubmitting(false);
+            }}
+        >{({
+            values,
+            errors,
+            handleChange,
+            handleSubmit,
+        }) =>
+            <form
+                onSubmit={handleSubmit}
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 20
+                }}
+            >
+                <Input
+                    name="query"
+                    placeholder='Search art, artist, work...'
+                    onChange={handleChange}
+                    value={values.query}
+                    onButtonClick={(e) => e.preventDefault()}
+                    error={errors.query}
+                />
+                <SearchSelect
+                    name="sort"
+                    error={errors.sort}
+                    onChange={handleChange}
+                    value={values.sort}
+                />
+            </form>
+            }
+        </Formik>
     )
 }

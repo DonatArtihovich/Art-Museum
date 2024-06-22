@@ -11,18 +11,26 @@ import { SearchForm } from "@components/search-form";
 
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
+    const [sorting, setSorting] = useState<string>('');
+
     return (
         <MainWrapper>
             <HeaderText>
                 let's find some <SpecialHeaderText>Art</SpecialHeaderText><br />here!
             </HeaderText>
-            <SearchForm query={query} setQuery={setQuery} />
+            <SearchForm
+                setQuery={setQuery}
+                setSorting={setSorting}
+            />
             <section>
                 <SectionHeader
                     title='Our special gallery'
                     subtitle='Topics for you'
                 />
-                <GallerySlider query={query} />
+                <GallerySlider
+                    query={query}
+                    sorting={sorting}
+                />
             </section>
             <section>
                 <SectionHeader
