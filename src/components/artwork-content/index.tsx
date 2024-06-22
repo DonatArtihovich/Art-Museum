@@ -1,7 +1,21 @@
 import { getArtwork } from "@utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { ArtistDataWrapper, ArtistTitle, ArtistYears, ArtworkImage, ImageWrapper, InfoHeader, MainWrapper, OverviewInfoItem, OverviewInfoWrapper, SaveButtonWrapper, SectionHeader, SectionWrapper, TextContentWrapper } from "./styled";
+import {
+    ArtistDataWrapper,
+    ArtistTitle,
+    ArtistYears,
+    ArtworkImage,
+    ImageWrapper,
+    InfoHeader,
+    MainWrapper,
+    OverviewInfoItem,
+    OverviewInfoWrapper,
+    SaveButtonWrapper,
+    SectionHeader,
+    SectionWrapper,
+    TextContentWrapper
+} from "./styled";
 import { getArtistYears, imagePath } from "@utils/lib";
 import { ArtworkSaveButton } from "@components/save-button";
 import { getArtistNacionality } from "@utils/lib/artist-info";
