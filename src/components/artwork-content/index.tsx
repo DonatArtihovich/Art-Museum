@@ -5,25 +5,30 @@ import { ArtistDataWrapper, ArtistTitle, ArtistYears, ArtworkImage, ImageWrapper
 import { getArtistYears, imagePath } from "@utils/lib";
 import { ArtworkSaveButton } from "@components/save-button";
 import { getArtistNacionality } from "@utils/lib/artist-info";
+import Loader from "@components/loader";
 
 export function ArtworkPageContent() {
     const { id } = useParams();
     const [artwork, setArtwork] = useState<FullArtwork | null>(null)
+    const [isPending, setIsPending] = useState<boolean>(true);
 
     useEffect(() => {
         new Promise(async () => {
             if (id) {
                 const res = await getArtwork(Number(id));
                 setArtwork(res);
+                setIsPending(false);
             }
         })
+
+        return () => setIsPending(true);
     }, [])
 
     console.log(artwork);
 
     return (
         <>
-            {artwork &&
+            {artwork && !isPending ?
                 <MainWrapper>
                     <ImageWrapper>
                         <ArtworkImage src={imagePath(artwork.image_id)} />
@@ -54,6 +59,7 @@ export function ArtworkPageContent() {
                         </SectionWrapper>
                     </TextContentWrapper>
                 </MainWrapper>
+                : <Loader />
             }
         </>
     )
