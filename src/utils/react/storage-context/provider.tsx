@@ -10,12 +10,12 @@ export default function StorageContextProvider({ children }: { children: React.R
         if (newArr) setSavedArtworks(newArr);
     }, [setSavedArtworks]);
 
-    const removeArtwork = useCallback((id: string) => {
+    const removeArtwork = useCallback((id: number) => {
         const newArr = Storage.removeArtwork(id);
         if (newArr) setSavedArtworks(newArr);
     }, [setSavedArtworks]);
 
-    const isArtworkSaved = useCallback((id: string): boolean => {
+    const isArtworkSaved = useCallback((id: number): boolean => {
         return savedArtworks.findIndex(art => art.id === id) !== -1;
     }, [savedArtworks]);
 

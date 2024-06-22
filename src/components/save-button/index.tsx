@@ -6,9 +6,10 @@ import { StorageContext } from "@utils/react/storage-context";
 
 type ArtworkSaveButtonProps = {
     artwork: Artwork;
+    background?: string;
 }
 
-export function ArtworkSaveButton({ artwork }: ArtworkSaveButtonProps) {
+export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0.3);' }: ArtworkSaveButtonProps) {
     const { isArtworkSaved, saveArtwork, removeArtwork } = useRequiredContext(StorageContext);
     const isSaved = isArtworkSaved(artwork.id);
 
@@ -21,7 +22,7 @@ export function ArtworkSaveButton({ artwork }: ArtworkSaveButtonProps) {
     }
 
     return (
-        <Button onClick={onButtonClick}>
+        <Button onClick={onButtonClick} style={{ background }}>
             <ArtworkSaveImage
                 src={isSaved
                     ? bookmarkFilledImage

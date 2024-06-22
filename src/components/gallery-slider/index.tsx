@@ -65,16 +65,7 @@ export default function GallerySlider({ query }: GallerySliderProps) {
     return (
         <GallerySliderWrapper>
             <ArtworkCardsList>
-                {artworks?.data.map(item => (
-                    <FullArtworkCard
-                        id={item.id}
-                        title={item.title}
-                        image={item.image_id}
-                        artist={item.artist_title}
-                        isPublic={item.is_public_domain}
-                        key={item.id}
-                    />
-                ))}
+                {artworks?.data.map(item => <FullArtworkCard artwork={item} />)}
             </ArtworkCardsList>
             {artworks?.totalPages &&
                 <Pagination

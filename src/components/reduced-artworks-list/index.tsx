@@ -8,15 +8,7 @@ type ReducedArtworksList = {
 export function ReducedArtworksList({ artworks }: ReducedArtworksList) {
     return (
         <ListWrapper>
-            {artworks.map(item =>
-                <ReducedArtworkCard
-                    id={item.id}
-                    image={item.image_id}
-                    title={item.title}
-                    artist={item.artist_title}
-                    isPublic={item.is_public_domain}
-                    key={item.id}
-                />)}
+            {artworks.map(item => <ReducedArtworkCard artwork={item} />)}
         </ListWrapper>
     )
 }

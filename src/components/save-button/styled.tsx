@@ -5,7 +5,6 @@ export const ArtworkSaveButton = styled.button`
     padding: 17px;
     width: 59px;
     height: 59px;
-    background: rgba(251, 215, 178, 0.3);
     border: none;
 
     &:hover {

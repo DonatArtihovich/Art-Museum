@@ -18,7 +18,7 @@ export function saveArtwork(artwork: Artwork): false | Artwork[] {
     return artworksArr;
 }
 
-export function removeArtwork(id: string): false | Artwork[] {
+export function removeArtwork(id: number): false | Artwork[] {
     const artworksJSON = localStorage.getItem(KEY);
     if(!artworksJSON) return false;
 

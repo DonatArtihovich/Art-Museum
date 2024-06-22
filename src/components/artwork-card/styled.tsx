@@ -1,11 +1,27 @@
-import styled from "styled-components"
+import { Link } from "react-router-dom"
+import styled, { keyframes } from "styled-components"
 
-export const ArtworkCardWrapper = styled.li`
-    position: relative;
-    width: 387px;
-    height: 444px;
-    background-position: center;
+const moveUp = keyframes`
+    from {
+        bottom: -66px;
+    }
+    to {
+        bottom: 10%;
+    }
 `
+
+export const ArtworkCardLayer = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: none;
+`
+
 
 export const ArtworkCardInfoWrapper = styled.div`
     border: 1px solid #f0f1f1;
@@ -23,10 +39,28 @@ export const ArtworkCardInfoWrapper = styled.div`
     justify-content: space-between;
 `
 
+
+export const ArtworkCardWrapper = styled.li`
+    position: relative;
+    width: 387px;
+    height: 444px;
+    background-position: center;
+    border-radius: 5px;
+
+    &:hover ${ArtworkCardLayer} {
+        display: block;
+    }
+
+    &:hover ${ArtworkCardInfoWrapper} {
+        animation: 0.3s ${moveUp} ease-in;
+        bottom: 10%;
+    }
+`
+
 export const ArtworkCardTextInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 12px;
     height: 98px;
 `
 
@@ -44,7 +78,7 @@ export const ArtworkPrivateInfoText = styled.span`
     color: #393939;
 `
 
-export const ArtworkCardTitle = styled.h3`
+export const ArtworkCardTitleLink = styled(Link)`
     font-family: var(--second-family);
     font-weight: 500;
     font-size: 17px;
@@ -52,6 +86,11 @@ export const ArtworkCardTitle = styled.h3`
     letter-spacing: -0.03em;
     color: #393939;
     margin: 0;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 export const ArtworkArtistName = styled.span`
