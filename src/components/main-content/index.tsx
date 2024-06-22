@@ -1,4 +1,3 @@
-import { Input } from "@components/search-input";
 import {
     HeaderText,
     MainWrapper,
@@ -8,6 +7,7 @@ import GallerySlider from "@components/gallery-slider";
 import { useState } from "react";
 import { SectionHeader } from "@components/section-header";
 import { AdditionalArtworksSection } from "@components/additional-artworks-section";
+import { SearchForm } from "@components/search-form";
 
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
@@ -16,11 +16,7 @@ export default function MainContent() {
             <HeaderText>
                 let's find some <SpecialHeaderText>Art</SpecialHeaderText><br />here!
             </HeaderText>
-            <Input
-                placeholder='Search art, artist, work...'
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-                value={query}
-            />
+            <SearchForm query={query} setQuery={setQuery} />
             <section>
                 <SectionHeader
                     title='Our special gallery'
