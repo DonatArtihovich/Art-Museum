@@ -16,9 +16,12 @@ import {
     SectionWrapper,
     TextContentWrapper
 } from "./styled";
-import { getArtistYears, imagePath } from "@utils/lib";
+import {
+    getArtistYears,
+    getArtistNacionality,
+    imagePath
+} from "@utils/lib";
 import { ArtworkSaveButton } from "@components/save-button";
-import { getArtistNacionality } from "@utils/lib/artist-info";
 import Loader from "@components/loader";
 
 export function ArtworkPageContent() {
