@@ -11,7 +11,6 @@ import { AdditionalArtworksSection } from "@components/additional-artworks-secti
 
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
-
     return (
         <MainWrapper>
             <HeaderText>

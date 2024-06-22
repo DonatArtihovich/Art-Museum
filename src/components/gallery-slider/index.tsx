@@ -11,7 +11,7 @@ import {
 } from "./styled";
 import arrowImage from '@assets/images/arrow.svg'
 import { useEffect, useState } from "react";
-import { getArtworks } from "@utils/api";
+import { getArtworks, searchArtworks } from "@utils/api";
 import { FullArtworkCard } from "@components/artwork-card";
 
 type GallerySliderProps = {
@@ -54,11 +54,11 @@ export default function GallerySlider({ query }: GallerySliderProps) {
     const [page, setPage] = useState<number>(1);
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
 
-    console.log(artworks?.data);
     useEffect(() => {
         new Promise(async () => {
-            const { pagination: { total_pages: totalPages }, data } = await getArtworks(page, 3, query);
+            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, 3, query);
             setArtworks({ totalPages, data });
+            console.log(data);
         })
     }, [query, page])
 

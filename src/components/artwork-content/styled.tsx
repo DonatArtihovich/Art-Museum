@@ -41,6 +41,7 @@ export const SectionHeader = styled.h2`
     font-size: 32px;
     color: #393939;
     margin: 0;
+    max-width: 500px;
 `
 
 export const ArtistDataWrapper = styled.div`
@@ -78,6 +79,7 @@ export const OverviewInfoItem = styled.li`
     font-weight: 400;
     font-size: 16px;
     color: #393939;
+    max-width: 500px;
 `
 
 export const InfoHeader = styled.span`
