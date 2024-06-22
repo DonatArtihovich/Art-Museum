@@ -23,6 +23,7 @@ import {
 } from "@utils/lib";
 import { ArtworkSaveButton } from "@components/save-button";
 import Loader from "@components/loader";
+import noImage from '@assets/images/no-image.svg'
 
 export function ArtworkPageContent() {
     const { id } = useParams();
@@ -41,14 +42,12 @@ export function ArtworkPageContent() {
         return () => setIsPending(true);
     }, [])
 
-    console.log(artwork);
-
     return (
         <MainWrapper>
             {artwork && !isPending ?
                 <>
                     <ImageWrapper>
-                        <ArtworkImage src={imagePath(artwork.image_id)} />
+                        <ArtworkImage src={artwork.image_id ? imagePath(artwork.image_id) : noImage} />
                         <SaveButtonWrapper>
                             <ArtworkSaveButton
                                 artwork={artwork}

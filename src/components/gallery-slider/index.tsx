@@ -4,6 +4,7 @@ import {
     ArtworkCardsList,
     GallerySliderWrapper,
     LeftPaginationArrowImage,
+    NoArtworksText,
     NumbersWrapper,
     PageNumber,
     PaginationWrapper,
@@ -11,8 +12,9 @@ import {
 } from "./styled";
 import arrowImage from '@assets/images/arrow.svg'
 import { useEffect, useState } from "react";
-import { getArtworks, searchArtworks } from "@utils/api";
+import { searchArtworks } from "@utils/api";
 import { FullArtworkCard } from "@components/artwork-card";
+import Loader from "@components/loader";
 
 type GallerySliderProps = {
     query: string;
@@ -53,26 +55,34 @@ const Pagination = ({ page, setPage, totalPages }: {
 export default function GallerySlider({ query }: GallerySliderProps) {
     const [page, setPage] = useState<number>(1);
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
+    const [isPending, setIsPending] = useState<boolean>(true);
 
     useEffect(() => {
         new Promise(async () => {
             const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, 3, query);
             setArtworks({ totalPages, data });
+            setIsPending(false);
             console.log(data);
         })
+
+        return () => setIsPending(true);
     }, [query, page])
 
     return (
-        <GallerySliderWrapper>
-            <ArtworkCardsList>
-                {artworks?.data.map(item => <FullArtworkCard artwork={item} />)}
-            </ArtworkCardsList>
-            {artworks?.totalPages &&
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    totalPages={artworks.totalPages}
-                />}
-        </GallerySliderWrapper>
+        !isPending
+            ? artworks && artworks.data.length
+                ? <GallerySliderWrapper>
+                    <ArtworkCardsList>
+                        {artworks?.data.map(item => <FullArtworkCard artwork={item} />)}
+                    </ArtworkCardsList>
+                    {artworks?.totalPages &&
+                        <Pagination
+                            page={page}
+                            setPage={setPage}
+                            totalPages={artworks.totalPages}
+                        />}
+                </GallerySliderWrapper>
+                : <NoArtworksText>We haven't searched anything</NoArtworksText>
+            : <Loader />
     )
 }

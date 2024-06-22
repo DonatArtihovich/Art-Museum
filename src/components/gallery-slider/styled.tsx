@@ -75,3 +75,12 @@ export const ArrowButton = styled.button`
         cursor: pointer;
     }
 `
+
+export const NoArtworksText = styled.p`
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    color: #393939;
+    margin: 0;
+    text-align: center;
+`
