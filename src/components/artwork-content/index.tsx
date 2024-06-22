@@ -41,9 +41,9 @@ export function ArtworkPageContent() {
     console.log(artwork);
 
     return (
-        <>
+        <MainWrapper>
             {artwork && !isPending ?
-                <MainWrapper>
+                <>
                     <ImageWrapper>
                         <ArtworkImage src={imagePath(artwork.image_id)} />
                         <SaveButtonWrapper>
@@ -72,9 +72,9 @@ export function ArtworkPageContent() {
                             </OverviewInfoWrapper>
                         </SectionWrapper>
                     </TextContentWrapper>
-                </MainWrapper>
+                </>
                 : <Loader />
             }
-        </>
+        </MainWrapper>
     )
 }

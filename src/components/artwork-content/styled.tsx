@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.main`
     padding: 120px 0;
+    min-width: 60vh;
     display: flex;
     gap: 80px;
     justify-content: center;
