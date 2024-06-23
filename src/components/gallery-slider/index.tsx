@@ -35,7 +35,7 @@ const Pagination = ({ page, setPage, totalPages }: {
                 <LeftPaginationArrowImage src={arrowImage} />
             </ArrowButton>}
         <NumbersWrapper>
-            {Array.from({ length: 4 }).map((_, idx) => {
+            {Array.from({ length: totalPages < 4 ? totalPages : 4 }).map((_, idx) => {
                 const number = Math.floor((page - 1) / 4) * 4 + idx + 1;
 
                 return number !== page
