@@ -1,6 +1,7 @@
 import { Input } from "@components/search-input";
 import { SearchSelect } from "@components/search-select";
 import { formSchema } from "@utils/form";
+import { debounce } from "@utils/lib/debounce";
 import { Formik } from "formik";
 
 type SearchFormProps = {
@@ -44,10 +45,9 @@ export function SearchForm({
                     placeholder='Search art, artist, work...'
                     onChange={e => {
                         handleChange(e)
-                        submitForm()
+                        debounce(submitForm)
                     }}
                     value={values.query}
-                    onButtonClick={(e) => e.preventDefault()}
                     error={errors.query}
                 />
                 <SearchSelect
