@@ -9,6 +9,10 @@ export const SearchInputWrapper = styled.div`
     background: rgba(57, 57, 57, 0.05);
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 960px) {
+        width: 70vw; 
+    }
 `
 
 export const SearchInput = styled.input`

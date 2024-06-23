@@ -15,6 +15,10 @@ export const HeaderText = styled.h1`
     text-transform: capitalize;
     text-align: center;
     color: #393939;
+
+    @media(max-width: 960px) {
+        font-size: 36px;  
+    }
 `
 
 export const SpecialHeaderText = styled.span`
@@ -24,6 +28,11 @@ export const SpecialHeaderText = styled.span`
 export const HeaderIcon = styled.img`
     width: 74px;
     height: 74px;
+
+    @media(max-width: 960px) {
+        width: 50px;
+        height: 50px; 
+    }
 `
 
 export const SpecialHeaderTextWrapper = styled.div`

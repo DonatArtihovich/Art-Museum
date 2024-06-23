@@ -15,6 +15,10 @@ export const HeaderText = styled.h1`
     text-transform: capitalize;
     text-align: center;
     color: #393939;
+
+    @media(max-width: 960px) {
+        font-size: 36px;  
+    }
 `
 
 export const SpecialHeaderText = styled.span`

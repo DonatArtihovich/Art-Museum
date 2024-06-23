@@ -38,6 +38,23 @@ export const ArtworkCardInfoWrapper = styled.div`
     z-index: 10;
     justify-content: space-between;
     pointer-events: none;
+
+    @media(max-width: 1440px) {
+        width: 22vw;
+        padding: 24px 16px;
+    }
+
+    @media(max-width: 900px) {
+        width: 23.5vw;
+    }
+
+    @media(max-width: 800px) {
+        width: 30vw;
+    }
+
+    @media(max-width: 500px) {
+        width: 56vw;
+    }
 `
 
 
@@ -56,6 +73,26 @@ export const ArtworkCardWrapper = styled.li`
         animation: 0.3s ${moveUp} ease-in;
         bottom: 10%;
     }
+
+    @media(max-width: 1440px) {
+        width: 25vw;
+    }
+
+    @media(max-width: 1200px) {
+        height: 350px;
+    }
+
+    @media(max-width: 900px) {
+        width: 27vw;
+    }
+
+    @media(max-width: 800px) {
+        width: 35vw;
+    }
+
+    @media(max-width: 500px) {
+        width: 65vw;
+    }
 `
 
 export const ArtworkCardTextInfoWrapper = styled.div`
@@ -63,6 +100,11 @@ export const ArtworkCardTextInfoWrapper = styled.div`
     flex-direction: column;
     gap: 12px;
     height: 98px;
+
+    @media(max-width: 1440px) {
+        gap: 0px;
+        justify-content: space-between;
+    }
 `
 
 export const ArtworkCardTextHeader = styled.div`
@@ -93,6 +135,14 @@ export const ArtworkCardTitleLink = styled(Link)`
     &:hover {
         text-decoration: underline;
     }
+
+    @media(max-width: 1440px) {
+        font-size: 16px;
+    }
+
+    @media(max-width: 960px) {
+        font-size: 14px;
+    }
 `
 
 export const ArtworkArtistName = styled.span`
@@ -102,6 +152,10 @@ export const ArtworkArtistName = styled.span`
     line-height: 171%;
     letter-spacing: -0.01em;
     color: #e0a449;
+
+    @media(max-width: 960px) {
+        font-size: 12px;
+    }
 `
 
 export const ReducedArtworkCardWrapper = styled.div`
@@ -115,6 +169,18 @@ export const ReducedArtworkCardWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+
+    @media(max-width: 900px) {
+        width: 40vw;
+    }
+
+    @media(max-width: 670px) {
+        width: 60vw;
+    }
+
+     @media(max-width: 450px) {
+        width: 80vw;
+    }
 `
 
 export const ReducedArtworkCardImage = styled.img`

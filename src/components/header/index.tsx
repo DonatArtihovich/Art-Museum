@@ -1,7 +1,10 @@
 import {
+    BurgerButton,
+    BurgerLine,
     HeaderContent,
     HeaderWrapper,
     LogoImage,
+    MenuBackground,
     NavList,
     NavListItem,
     NavListItemImage,
@@ -11,6 +14,7 @@ import logoImage from '@assets/images/dark-logo.svg';
 import homeImage from '@assets/images/home.svg'
 import bookmarkImage from '@assets/images/bookmark.svg'
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const NavLink = ({
     link,
@@ -31,13 +35,16 @@ const NavLink = ({
 
 export default function Header() {
     const location = useLocation()
+    const [isBurgerActive, setIsBurgerActive] = useState<boolean>(false);
+
+    const onBurgerClick = () => setIsBurgerActive(!isBurgerActive);
 
     return (
         <HeaderWrapper>
             <HeaderContent>
                 <LogoImage src={logoImage} />
                 <nav>
-                    <NavList>
+                    <NavList isBurgerActive={isBurgerActive}>
                         {location.pathname !== '/' && <NavLink
                             link='/'
                             image={homeImage}
@@ -50,6 +57,18 @@ export default function Header() {
                         />
                     </NavList>
                 </nav>
+                <MenuBackground
+                    isMenuOpened={isBurgerActive}
+                    onClick={() => setIsBurgerActive(false)}
+                />
+                <BurgerButton
+                    onClick={onBurgerClick}
+                    active={isBurgerActive}
+                >
+                    <BurgerLine />
+                    <BurgerLine />
+                    <BurgerLine />
+                </BurgerButton>
             </HeaderContent>
         </HeaderWrapper>
     )

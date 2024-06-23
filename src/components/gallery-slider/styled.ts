@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const GallerySliderWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 export const ArtworkCardsList = styled.ul`
@@ -10,12 +11,21 @@ export const ArtworkCardsList = styled.ul`
     list-style: none;
     display: flex;
     gap: 60px;
+    padding: 0;
+
+    @media(max-width: 960px) {
+        gap: 30px;    
+    }
 `
 export const PaginationWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
     align-self: flex-end;
+
+    @media(max-width: 500px) {
+        align-self: center;
+    }
 `
 
 export const NumbersWrapper = styled.div`

@@ -1,11 +1,14 @@
+import ErrorBoundary from "@components/error-boundary";
 import AppRouter from "@utils/react/router"
 import StorageContextProvider from "@utils/react/storage-context/provider";
 
 function App() {
     return (
-        <StorageContextProvider>
-            <AppRouter />
-        </StorageContextProvider>
+        <ErrorBoundary>
+            <StorageContextProvider>
+                <AppRouter />
+            </StorageContextProvider>
+        </ErrorBoundary>
     );
 }
 

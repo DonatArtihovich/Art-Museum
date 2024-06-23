@@ -40,7 +40,7 @@ export const FullArtworkCard = ({
                 <ArtworkCardTextInfoWrapper>
                     <ArtworkCardTextHeader>
                         <ArtworkCardTitleLink to={`/artworks/${id}`}>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitleLink>
-                        <ArtworkArtistName>{artist_title}</ArtworkArtistName>
+                        <ArtworkArtistName>{artist_title && artist_title.length > 23 ? `${artist_title.slice(0, 23)}...` : artist_title || 'Unknown'}</ArtworkArtistName>
                     </ArtworkCardTextHeader>
                     <ArtworkPrivateInfoText>
                         {is_public_domain ? 'Public' : 'Private'}
@@ -71,7 +71,7 @@ export const ReducedArtworkCard = ({
                 <ArtworkCardTextInfoWrapper>
                     <ArtworkCardTextHeader>
                         <ArtworkCardTitleLink to={`/artworks/${id}`}>{title.length > 20 ? `${title.slice(0, 20)}...` : title}</ArtworkCardTitleLink>
-                        <ArtworkArtistName>{artist_title}</ArtworkArtistName>
+                        <ArtworkArtistName>{artist_title || 'Unknown'}</ArtworkArtistName>
                     </ArtworkCardTextHeader>
                     <ArtworkPrivateInfoText>
                         {is_public_domain ? 'Public' : 'Private'}

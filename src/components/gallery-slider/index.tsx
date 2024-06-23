@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { searchArtworks } from "@utils/api";
 import { FullArtworkCard } from "@components/artwork-card";
 import Loader from "@components/loader";
+import { useWindowWidth } from "@utils/react/hooks";
 
 type GallerySliderProps = {
     query: string;
@@ -59,16 +60,24 @@ export default function GallerySlider({ query, sorting, page, setPage }: Gallery
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
     const [isPending, setIsPending] = useState<boolean>(true);
 
+    const windowWidth = useWindowWidth();
+
+    const cardsOnPage = windowWidth > 800
+        ? 3
+        : windowWidth > 500
+            ? 2
+            : 1
+
     useEffect(() => {
         new Promise(async () => {
-            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, 3, query, sorting);
+            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, cardsOnPage, query, sorting);
             setArtworks({ totalPages, data });
             setIsPending(false);
             console.log(data);
         })
 
         return () => setIsPending(true);
-    }, [query, page, sorting])
+    }, [query, page, sorting, cardsOnPage])
 
     return (
         !isPending
