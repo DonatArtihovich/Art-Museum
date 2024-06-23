@@ -10,7 +10,7 @@ export function Input(props: InputHTMLAttributes<HTMLInputElement> &
     return (
         <Wrapper>
             <SearchInputWrapper>
-                <SearchInput {...props} />
+                <SearchInput {...{ ...props, onButtonClick: undefined }} />
                 <SearchButton type='submit'>
                     <SearchImage src={searchImage} />
                 </SearchButton>

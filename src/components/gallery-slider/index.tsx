@@ -19,6 +19,8 @@ import Loader from "@components/loader";
 type GallerySliderProps = {
     query: string;
     sorting: string;
+    page: number;
+    setPage: (page: number) => void;
 }
 
 const Pagination = ({ page, setPage, totalPages }: {
@@ -34,7 +36,7 @@ const Pagination = ({ page, setPage, totalPages }: {
         <NumbersWrapper>
             {Array.from({ length: 4 }).map((_, idx) => {
                 const number = Math.floor((page - 1) / 4) * 4 + idx + 1;
-                console.log(number);
+
                 return number !== page
                     ? <PageNumber
                         key={number}
@@ -53,28 +55,27 @@ const Pagination = ({ page, setPage, totalPages }: {
     </PaginationWrapper>
 )
 
-export default function GallerySlider({ query, sorting }: GallerySliderProps) {
-    const [page, setPage] = useState<number>(1);
+export default function GallerySlider({ query, sorting, page, setPage }: GallerySliderProps) {
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
     const [isPending, setIsPending] = useState<boolean>(true);
 
     useEffect(() => {
         new Promise(async () => {
-            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, 3, query);
+            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, 3, query, sorting);
             setArtworks({ totalPages, data });
             setIsPending(false);
             console.log(data);
         })
 
         return () => setIsPending(true);
-    }, [query, page])
+    }, [query, page, sorting])
 
     return (
         !isPending
             ? artworks && artworks.data.length
                 ? <GallerySliderWrapper>
                     <ArtworkCardsList>
-                        {artworks?.data.map(item => <FullArtworkCard artwork={item} />)}
+                        {artworks?.data.map(item => <FullArtworkCard artwork={item} key={item.id} />)}
                     </ArtworkCardsList>
                     {artworks?.totalPages &&
                         <Pagination

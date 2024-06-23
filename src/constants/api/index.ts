@@ -6,3 +6,8 @@ export const IMAGES_PATH = API_PATH + '/images'
 
 export const FULL_ARTWORK_FIELDS = 'fields=id,title,artist_title,artist_display,dimensions,credit_line,place_of_origin,is_public_domain,image_id'
 export const ARTWORK_FIELDS = 'fields=id,title,artist_title,image_id,is_public_domain'
+
+export const sortingFields = {
+    artist: 'artist_id',
+    date: 'date_start'
+} as Record<string, string>

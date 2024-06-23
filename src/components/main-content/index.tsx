@@ -12,6 +12,7 @@ import { SearchForm } from "@components/search-form";
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
     const [sorting, setSorting] = useState<string>('');
+    const [page, setPage] = useState<number>(1);
 
     return (
         <MainWrapper>
@@ -21,6 +22,7 @@ export default function MainContent() {
             <SearchForm
                 setQuery={setQuery}
                 setSorting={setSorting}
+                setPage={setPage}
             />
             <section>
                 <SectionHeader
@@ -30,6 +32,8 @@ export default function MainContent() {
                 <GallerySlider
                     query={query}
                     sorting={sorting}
+                    page={page}
+                    setPage={setPage}
                 />
             </section>
             <section>

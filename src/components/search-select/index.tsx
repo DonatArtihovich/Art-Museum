@@ -9,7 +9,7 @@ export function SearchSelect(props: SelectHTMLAttributes<HTMLSelectElement> &
     return (
         <SelectWrapper {...props}>
             <option>Choose sorting</option>
-            <SelectOption value="alph">By alphabet</SelectOption>
+            <SelectOption value="artist">By artists</SelectOption>
             <SelectOption value="date">By date</SelectOption>
             {props.error && <ErrorText>{props.error}</ErrorText>}
         </SelectWrapper>

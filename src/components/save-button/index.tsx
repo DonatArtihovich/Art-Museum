@@ -9,7 +9,7 @@ type ArtworkSaveButtonProps = {
     background?: string;
 }
 
-export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0.3);' }: ArtworkSaveButtonProps) {
+export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0.3)' }: ArtworkSaveButtonProps) {
     const { isArtworkSaved, saveArtwork, removeArtwork } = useRequiredContext(StorageContext);
     const isSaved = isArtworkSaved(artwork.id);
 
