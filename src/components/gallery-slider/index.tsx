@@ -1,21 +1,14 @@
 import {
-    ActivePageNumber,
-    ArrowButton,
     ArtworkCardsList,
     GallerySliderWrapper,
-    LeftPaginationArrowImage,
-    NoArtworksText,
-    NumbersWrapper,
-    PageNumber,
-    PaginationWrapper,
-    RightPaginationArrowImage
+    NoArtworksText
 } from "./styled";
-import arrowImage from '@assets/images/arrow.svg'
 import { useEffect, useState } from "react";
 import { searchArtworks } from "@utils/api";
 import { FullArtworkCard } from "@components/artwork-card";
 import Loader from "@components/loader";
 import { useWindowWidth } from "@utils/react/hooks";
+import { Pagination } from "@components/pagination";
 
 type GallerySliderProps = {
     query: string;
@@ -23,38 +16,6 @@ type GallerySliderProps = {
     page: number;
     setPage: (page: number) => void;
 }
-
-const Pagination = ({ page, setPage, totalPages }: {
-    page: number;
-    setPage: (page: number) => void;
-    totalPages: number;
-}) => (
-    <PaginationWrapper>
-        {page > 1 &&
-            <ArrowButton onClick={() => setPage(page - 1)}>
-                <LeftPaginationArrowImage src={arrowImage} />
-            </ArrowButton>}
-        <NumbersWrapper>
-            {Array.from({ length: totalPages < 4 ? totalPages : 4 }).map((_, idx) => {
-                const number = Math.floor((page - 1) / 4) * 4 + idx + 1;
-
-                return number !== page
-                    ? <PageNumber
-                        key={number}
-                        onClick={() => setPage(number)}
-                    >
-                        {number}
-                    </PageNumber>
-                    : <ActivePageNumber key={number}>{number}</ActivePageNumber>
-            })}
-        </NumbersWrapper>
-        {page < totalPages &&
-            <ArrowButton onClick={() => setPage(page + 1)}>
-                <RightPaginationArrowImage src={arrowImage} />
-            </ArrowButton>
-        }
-    </PaginationWrapper>
-)
 
 export default function GallerySlider({ query, sorting, page, setPage }: GallerySliderProps) {
     const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
