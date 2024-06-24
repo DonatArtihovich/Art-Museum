@@ -81,16 +81,7 @@ export const NavList = styled(
     }
 `
 
-export const MenuBackground = styled(
-    ({
-        isMenuOpened,
-        ...props
-    }: {
-        isMenuOpened: boolean,
-        [key: string]: any
-    }) =>
-        <div {...props} />
-)`
+export const MenuBackground = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
@@ -99,10 +90,6 @@ export const MenuBackground = styled(
     height: 100vh;
     background: rgb(0, 0, 0, 0.7);
     z-index: 90;
-
-    ${({ isMenuOpened }) => isMenuOpened
-        ? css`display: block;`
-        : css`display: none;`}
 `
 
 export const NavListItem = styled.li`

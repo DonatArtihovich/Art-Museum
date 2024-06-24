@@ -16,7 +16,7 @@ export const Pagination = ({ page, setPage, totalPages }: {
 }) => (
     <PaginationWrapper>
         {page > 1 &&
-            <ArrowButton onClick={() => setPage(page - 1)}>
+            <ArrowButton onClick={() => setPage(page - 1)} data-testid="left-arrow">
                 <LeftPaginationArrowImage src={arrowImage} />
             </ArrowButton>}
         <NumbersWrapper>
@@ -34,7 +34,7 @@ export const Pagination = ({ page, setPage, totalPages }: {
             })}
         </NumbersWrapper>
         {page < totalPages &&
-            <ArrowButton onClick={() => setPage(page + 1)}>
+            <ArrowButton onClick={() => setPage(page + 1)} data-testid='right-arrow'>
                 <RightPaginationArrowImage src={arrowImage} />
             </ArrowButton>
         }

@@ -19,13 +19,15 @@ import { useState } from "react";
 const NavLink = ({
     link,
     image,
-    text
+    text,
+    ...props
 }: {
     link: string;
     image: string;
     text: string;
+    [key: string]: any;
 }) => (
-    <Link to={link} style={{ textDecoration: 'none' }}>
+    <Link to={link} style={{ textDecoration: 'none' }} {...props}>
         <NavListItem>
             <NavListItemImage src={image} />
             <NavListItemTitle>{text}</NavListItemTitle>
@@ -45,25 +47,29 @@ export default function Header() {
                 <LogoImage src={logoImage} />
                 <nav>
                     <NavList isBurgerActive={isBurgerActive}>
-                        {location.pathname !== '/' && <NavLink
-                            link='/'
-                            image={homeImage}
-                            text='Home'
-                        />}
+                        {location.pathname !== '/' &&
+                            <NavLink
+                                link='/'
+                                image={homeImage}
+                                text='Home'
+                                data-testid="main-link"
+                            />}
                         <NavLink
                             link='/favorites'
                             image={bookmarkImage}
                             text='Your favorites'
+                            data-testid="favorites-link"
                         />
                     </NavList>
                 </nav>
-                <MenuBackground
-                    isMenuOpened={isBurgerActive}
+                {isBurgerActive && <MenuBackground
                     onClick={() => setIsBurgerActive(false)}
-                />
+                    data-testid="menu-background"
+                />}
                 <BurgerButton
                     onClick={onBurgerClick}
                     active={isBurgerActive}
+                    data-testid='burger-button'
                 >
                     <BurgerLine />
                     <BurgerLine />
