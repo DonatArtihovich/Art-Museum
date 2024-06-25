@@ -54,6 +54,10 @@ export default function Header() {
         document.body.style.overflow = 'auto';
     }
 
+    const onLinkClick = () => {
+        document.body.style.overflow = 'auto';
+    }
+
     return (
         <HeaderWrapper>
             <HeaderContent>
@@ -66,12 +70,14 @@ export default function Header() {
                                 image={homeImage}
                                 text='Home'
                                 data-testid="main-link"
+                                onCLick={onLinkClick}
                             />}
                         <NavLink
                             link='/favorites'
                             image={bookmarkImage}
                             text='Your favorites'
                             data-testid="favorites-link"
+                            onCLick={onLinkClick}
                         />
                     </NavList>
                 </nav>
