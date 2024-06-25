@@ -8,7 +8,7 @@ export function SearchSelect(props: SelectHTMLAttributes<HTMLSelectElement> &
 ) {
     return (
         <SelectWrapper {...props} data-testid='search-select'>
-            <option>Choose sorting</option>
+            <SelectOption value="">Choose sorting</SelectOption>
             <SelectOption value="artist">By artists</SelectOption>
             <SelectOption value="date">By date</SelectOption>
             {props.error && <ErrorText>{props.error}</ErrorText>}
