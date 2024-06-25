@@ -39,7 +39,15 @@ export default function Header() {
     const location = useLocation()
     const [isBurgerActive, setIsBurgerActive] = useState<boolean>(false);
 
-    const onBurgerClick = () => setIsBurgerActive(!isBurgerActive);
+    const onBurgerClick = () => {
+        setIsBurgerActive(!isBurgerActive);
+
+        if (isBurgerActive) {
+            document.body.style.overflow = 'auto';
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
+    }
 
     return (
         <HeaderWrapper>
