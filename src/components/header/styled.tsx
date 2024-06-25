@@ -40,6 +40,15 @@ const openMenuAnimation = keyframes`
     }
 `
 
+const closeMenuAnimation = keyframes`
+    from {
+        left: 0;
+    }
+    to {
+        left: -80vw;
+    }
+`
+
 export const NavList = styled(
     ({
         isBurgerActive,
@@ -57,13 +66,15 @@ export const NavList = styled(
     gap: 4px;
     margin: 0;
     padding: 0;
+    transition: left 0.5s ease-in;
 
     ${({ isBurgerActive }) => isBurgerActive
         ? css`
-            animation: 0.5s ${openMenuAnimation} ease;
             left: 0;
         `
-        : css`left: -80vw;`
+        : css`
+            left: -80vw;   
+        `
     }
 
     @media(max-width: 700px) {
@@ -110,15 +121,6 @@ export const NavListItemImage = styled.img`
     height: 25px;
 `
 
-const burgerAnimation = keyframes`
-    from {
-        transform: rotate(0);
-    }
-    to {
-        transform: rotate(90deg);
-    }
-`
-
 export const BurgerButton = styled(
     ({ active, children, ...props }: { active: boolean, children: React.ReactNode, [key: string]: any }) =>
         <button {...props}>{children}</button>
@@ -136,13 +138,12 @@ export const BurgerButton = styled(
     justify-content: space-between;
     padding: 0;
     z-index: 120;
+    transition: transform 0.5s ease-in;
 
     ${({ active }) => active
-        ? css`
-            animation: 0.5s ${burgerAnimation} ease-in;
+        && css`
             transform: rotate(90deg);
         `
-        : ""
     }
 
     @media(max-width: 700px) {
