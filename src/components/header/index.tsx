@@ -70,14 +70,14 @@ export default function Header() {
                                 image={homeImage}
                                 text='Home'
                                 data-testid="main-link"
-                                onCLick={onLinkClick}
+                                onClick={onLinkClick}
                             />}
                         <NavLink
                             link='/favorites'
                             image={bookmarkImage}
                             text='Your favorites'
                             data-testid="favorites-link"
-                            onCLick={onLinkClick}
+                            onClick={onLinkClick}
                         />
                     </NavList>
                 </nav>
