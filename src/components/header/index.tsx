@@ -49,6 +49,11 @@ export default function Header() {
         }
     }
 
+    const onMenuBackgroundClick = () => {
+        setIsBurgerActive(false);
+        document.body.style.overflow = 'auto';
+    }
+
     return (
         <HeaderWrapper>
             <HeaderContent>
@@ -71,7 +76,7 @@ export default function Header() {
                     </NavList>
                 </nav>
                 {isBurgerActive && <MenuBackground
-                    onClick={() => setIsBurgerActive(false)}
+                    onClick={onMenuBackgroundClick}
                     data-testid="menu-background"
                 />}
                 <BurgerButton
