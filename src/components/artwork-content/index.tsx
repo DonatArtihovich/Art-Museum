@@ -31,6 +31,7 @@ export function ArtworkPageContent() {
     const [isPending, setIsPending] = useState<boolean>(true);
 
     useEffect(() => {
+        window.scrollTo({ top: 0 });
         new Promise(async () => {
             if (id) {
                 const res = await getArtwork(Number(id));
