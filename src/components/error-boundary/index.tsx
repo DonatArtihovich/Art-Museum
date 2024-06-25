@@ -3,14 +3,14 @@ import { ErrorText, ResetButton, Wrapper } from "./styled";
 
 const ErrorBoundary = withErrorBoundary(({ children }: { children: React.ReactNode }) => {
     const [error, resetError] = useErrorBoundary(
-        (error, errorInfo) => console.log(error, errorInfo)
+        (error, errorInfo) => { console.log(error, errorInfo) }
     );
 
     if (error) {
         return (
             <Wrapper>
                 <ErrorText>Oops! It's error!</ErrorText>
-                <ResetButton onClick={resetError}>Try again</ResetButton>
+                <ResetButton onClick={resetError} data-testid='reset-button'>Try again</ResetButton>
             </Wrapper>
         );
     }

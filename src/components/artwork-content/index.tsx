@@ -57,7 +57,7 @@ export function ArtworkPageContent() {
                     </ImageWrapper>
                     <TextContentWrapper>
                         <SectionWrapper>
-                            <SectionHeader>{artwork.title}</SectionHeader>
+                            <SectionHeader data-testid="artwork-title">{artwork.title}</SectionHeader>
                             <ArtistDataWrapper>
                                 <ArtistTitle>{artwork.artist_title}</ArtistTitle>
                                 <ArtistYears>{getArtistYears(artwork.artist_display)}</ArtistYears>

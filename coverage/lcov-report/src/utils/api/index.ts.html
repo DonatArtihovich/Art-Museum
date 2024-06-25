@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>4/14</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>4/14</span>
             </div>
         
             
@@ -85,45 +85,45 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { ARTWORKS_PATH, ARTWORKS_SEARCH_PATH, ARTWORK_FIELDS, FULL_ARTWORK_FIELDS, sortingFields } from "@constants/api"</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ARTWORKS_PATH, ARTWORKS_SEARCH_PATH, ARTWORK_FIELDS, FULL_ARTWORK_FIELDS, sortingFields } from "@constants/api"
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export a</span>sync function <span class="fstat-no" title="function not covered" >getArtworks(</span>page: number, limit = <span class="branch-0 cbranch-no" title="branch not covered" >3)</span>: Promise&lt;ArtworksResponse&gt; {
+export async function <span class="fstat-no" title="function not covered" >getArtworks(</span>page: number, limit = <span class="branch-0 cbranch-no" title="branch not covered" >3)</span>: Promise&lt;ArtworksResponse&gt; {
     const response = <span class="cstat-no" title="statement not covered" >await fetch(`${ARTWORKS_PATH}?page=${page}&amp;limit=${limit}&amp;${ARTWORK_FIELDS}`);</span>
     const artworksRes = <span class="cstat-no" title="statement not covered" >await response.json() as ArtworksResponse;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return artworksRes;</span>
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export a</span>sync function <span class="fstat-no" title="function not covered" >getArtwork(</span>id: number): Promise&lt;FullArtwork&gt; {
+export async function <span class="fstat-no" title="function not covered" >getArtwork(</span>id: number): Promise&lt;FullArtwork&gt; {
     const response = <span class="cstat-no" title="statement not covered" >await fetch(`${ARTWORKS_PATH}/${id}?${FULL_ARTWORK_FIELDS}`);</span>
     const artworkRes = <span class="cstat-no" title="statement not covered" >await response.json();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return artworkRes.data;</span>
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export a</span>sync function <span class="fstat-no" title="function not covered" >searchArtworks(</span>page: number, limit = <span class="branch-0 cbranch-no" title="branch not covered" >3,</span> query = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span> sorting?: string): Promise&lt;ArtworksResponse&gt; {
+export async function <span class="fstat-no" title="function not covered" >searchArtworks(</span>page: number, limit = <span class="branch-0 cbranch-no" title="branch not covered" >3,</span> query = <span class="branch-0 cbranch-no" title="branch not covered" >'',</span> sorting?: string): Promise&lt;ArtworksResponse&gt; {
     const response = <span class="cstat-no" title="statement not covered" >await fetch(`${ARTWORKS_SEARCH_PATH}?q=${query}&amp;page=${page}&amp;limit=${limit}&amp;${ARTWORK_FIELDS}${sorting ? `&amp;sort=${sortingFields[sorting]}` : ''}`);</span>
     const artworksRes = <span class="cstat-no" title="statement not covered" >await response.json() as ArtworksResponse;</span>
 &nbsp;
@@ -136,7 +136,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-24T22:35:56.976Z
+                at 2024-06-25T17:50:37.254Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

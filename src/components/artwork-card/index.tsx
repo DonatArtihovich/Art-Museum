@@ -65,7 +65,7 @@ export const ReducedArtworkCard = ({
     } = artwork;
 
     return (
-        <ReducedArtworkCardWrapper>
+        <ReducedArtworkCardWrapper data-testid="reduced-card">
             <ReducedArtworkInfoWrapper>
                 <ReducedArtworkCardImage src={image_id ? imagePath(image_id) : noImage} />
                 <ArtworkCardTextInfoWrapper>

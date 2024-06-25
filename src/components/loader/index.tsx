@@ -3,7 +3,7 @@ import { LoaderWrapper } from "./styled";
 
 export default function Loader() {
     return (
-        <LoaderWrapper>
+        <LoaderWrapper data-testid="loader">
             <ColorRing
                 visible={true}
                 height="100"

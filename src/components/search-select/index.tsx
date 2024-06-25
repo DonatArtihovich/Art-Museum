@@ -7,7 +7,7 @@ export function SearchSelect(props: SelectHTMLAttributes<HTMLSelectElement> &
 }
 ) {
     return (
-        <SelectWrapper {...props}>
+        <SelectWrapper {...props} data-testid='search-select'>
             <option>Choose sorting</option>
             <SelectOption value="artist">By artists</SelectOption>
             <SelectOption value="date">By date</SelectOption>

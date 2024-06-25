@@ -22,7 +22,12 @@ export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0
     }
 
     return (
-        <Button onClick={onButtonClick} style={{ background }}>
+        <Button
+            onClick={onButtonClick}
+            style={{ background }}
+            background={background}
+            data-testid="save-button"
+        >
             <ArtworkSaveImage
                 src={isSaved
                     ? bookmarkFilledImage

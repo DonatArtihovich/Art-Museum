@@ -9,7 +9,7 @@ export const Input = ({ error, ...props }: InputHTMLAttributes<HTMLInputElement>
     return (
         <Wrapper>
             <SearchInputWrapper>
-                <SearchInput {...props} />
+                <SearchInput {...props} data-testid="search-input" />
                 <SearchButton type='submit'>
                     <SearchImage src={searchImage} />
                 </SearchButton>

@@ -1,6 +1,14 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
-export const ArtworkSaveButton = styled.button`
+export const ArtworkSaveButton = styled((
+    {
+        background,
+        ...props
+    }: {
+        background: string;
+        [key: string]: any;
+    }) => <button {...props} />
+)`
     border-radius: 35px;
     padding: 17px;
     width: 59px;
@@ -10,6 +18,7 @@ export const ArtworkSaveButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    ${({ background }) => css`background: ${background}`}
 
     &:hover {
         cursor: pointer;
