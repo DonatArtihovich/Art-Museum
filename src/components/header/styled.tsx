@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderWrapper = styled.div`
     width: 100%;
@@ -29,24 +29,6 @@ export const HeaderContent = styled.div`
 export const LogoImage = styled.img`
     width: 206px;
     height: 63px;
-`
-
-const openMenuAnimation = keyframes`
-    from {
-        transform: translate(-80vw);
-    }
-    to {
-        transform: translate(0);
-    }
-`
-
-const closeMenuAnimation = keyframes`
-    from {
-        left: 0;
-    }
-    to {
-        left: -80vw;
-    }
 `
 
 export const NavList = styled(
