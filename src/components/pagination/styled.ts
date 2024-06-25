@@ -37,27 +37,20 @@ export const PageNumber = styled.button`
     font-size: 18px;
     line-height: 133%;
     color: #393939;
+    text-align: center;
 
     &:hover {
         cursor: pointer;
     }
 `
 
-export const ActivePageNumber = styled.button`
+export const ActivePageNumber = styled(PageNumber)`
     border-radius: 4px;    
-    width: 30px;
-    height: 30px;
     background: #f17900;
-    border: none;
     font-family: var(--second-family);
     font-weight: 600;
-    font-size: 18px;
     line-height: 128%;
     color: #fff;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 export const ArrowButton = styled.button`
