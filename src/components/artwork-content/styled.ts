@@ -32,6 +32,7 @@ export const SaveButtonWrapper = styled.div`
 `
 
 export const ArtworkImage = styled.img`
+    min-width: 400px;
     max-width: 497px;
     height: auto;
 
@@ -40,6 +41,12 @@ export const ArtworkImage = styled.img`
     }
 
     @media(max-width: 960px) {
+    min-width: 40vw;
+        max-width: 300px;
+    }
+
+    @media(max-width: 700px) {
+        min-width: 50vw;
         max-width: 300px;
     }
 `
