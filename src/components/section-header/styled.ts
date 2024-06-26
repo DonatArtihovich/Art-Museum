@@ -4,6 +4,10 @@ export const SectionHeader = styled.header`
     margin: 120px 0 40px;
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 700px) {
+        margin: 90px 0 30px;
+    }
 `
 
 export const SectionHeaderTitle = styled.h2`
