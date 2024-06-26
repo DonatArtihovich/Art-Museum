@@ -64,6 +64,8 @@ export const ArtworkCardWrapper = styled.li`
     height: 444px;
     background-position: center;
     border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     &:hover ${ArtworkCardLayer} {
         display: block;
