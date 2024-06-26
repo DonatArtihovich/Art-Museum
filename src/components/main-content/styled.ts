@@ -7,7 +7,7 @@ export const MainWrapper = styled.main`
     align-items: center;
 
     @media(max-width: 700px) {
-        padding: 60px 0;
+        padding: 60px 0 100px;
     }
 `
 
