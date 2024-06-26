@@ -5,6 +5,10 @@ export const MainWrapper = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media(max-width: 700px) {
+        padding: 60px 0;
+    }
 `
 
 export const HeaderText = styled.h1`
