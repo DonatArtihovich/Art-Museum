@@ -1,4 +1,8 @@
-import { SectionHeader as Header, SectionHeaderSubtitle, SectionHeaderTitle } from "./styled";
+import {
+    SectionHeader as Header,
+    SectionHeaderSubtitle,
+    SectionHeaderTitle
+} from "./styled";
 
 type SectionHeaderProps = {
     title: string;

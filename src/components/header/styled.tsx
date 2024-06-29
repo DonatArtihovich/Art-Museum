@@ -1,4 +1,10 @@
 import styled, { css } from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
+import { HTMLProps } from "react";
+
+export const Link = styled(RouterLink)`
+    text-decoration: none;
+`
 
 export const HeaderWrapper = styled.div`
     width: 100%;
@@ -31,16 +37,17 @@ export const LogoImage = styled.img`
     height: 63px;
 `
 
+type NavListProps = {
+    isBurgerActive: boolean;
+    children: React.ReactNode[],
+} & HTMLProps<HTMLUListElement>
+
 export const NavList = styled(
     ({
         isBurgerActive,
         children,
         ...props
-    }: {
-        isBurgerActive: boolean;
-        children: React.ReactNode[],
-        [key: string]: any
-    }) =>
+    }: NavListProps) =>
         <ul {...props}>{children}</ul>
 )`
     display: flex;
@@ -103,9 +110,14 @@ export const NavListItemImage = styled.img`
     height: 25px;
 `
 
+type BurgerButtonProps = {
+    active: boolean,
+    children: React.ReactNode,
+} & HTMLProps<HTMLButtonElement>
+
 export const BurgerButton = styled(
-    ({ active, children, ...props }: { active: boolean, children: React.ReactNode, [key: string]: any }) =>
-        <button {...props}>{children}</button>
+    ({ active, children, ...props }: BurgerButtonProps) =>
+        <button {...props} type='button'>{children}</button>
 )`
     position: absolute;
     top: 50px;

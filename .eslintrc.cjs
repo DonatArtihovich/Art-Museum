@@ -10,7 +10,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'prettier'],
+  plugins: ['react-refresh', 'eslint-plugin-simple-import-sort', 'prettier'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -28,6 +28,12 @@ module.exports = {
         'ts': 'never',
         'tsx': 'never'
         }
-    ]
+    ],
+    'simple-import-sort/imports': 'error'   ,
+    'simple-import-sort/exports': 'error'
   },
+  'parserOptions': {
+    'sourceType': 'module',
+    'ecmaVersion': 'latest'
+  }
 }

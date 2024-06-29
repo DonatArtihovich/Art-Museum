@@ -3,6 +3,7 @@ import {
     BurgerLine,
     HeaderContent,
     HeaderWrapper,
+    Link,
     LogoImage,
     MenuBackground,
     NavList,
@@ -10,24 +11,21 @@ import {
     NavListItemImage,
     NavListItemTitle
 } from "./styled";
-import logoImage from '@assets/images/dark-logo.svg';
-import homeImage from '@assets/images/home.svg'
-import bookmarkImage from '@assets/images/bookmark.svg'
-import { Link, useLocation } from "react-router-dom";
+import { LinkProps, useLocation } from "react-router-dom";
 import { useState } from "react";
+import imagesObj from "@constants/images";
+
+type NavLinkProps = {
+    image: string;
+    text: string;
+} & LinkProps
 
 const NavLink = ({
-    link,
     image,
     text,
     ...props
-}: {
-    link: string;
-    image: string;
-    text: string;
-    [key: string]: any;
-}) => (
-    <Link to={link} style={{ textDecoration: 'none' }} {...props}>
+}: NavLinkProps) => (
+    <Link {...props}>
         <NavListItem>
             <NavListItemImage src={image} />
             <NavListItemTitle>{text}</NavListItemTitle>
@@ -61,20 +59,20 @@ export default function Header() {
     return (
         <HeaderWrapper>
             <HeaderContent>
-                <LogoImage src={logoImage} />
+                <LogoImage src={imagesObj.darkLogo} />
                 <nav>
                     <NavList isBurgerActive={isBurgerActive}>
                         {location.pathname !== '/' &&
                             <NavLink
-                                link='/'
-                                image={homeImage}
+                                to='/'
+                                image={imagesObj.homeIcon}
                                 text='Home'
                                 data-testid="main-link"
                                 onClick={onLinkClick}
                             />}
                         <NavLink
-                            link='/favorites'
-                            image={bookmarkImage}
+                            to='/favorites'
+                            image={imagesObj.bookmarkIcon}
                             text='Your favorites'
                             data-testid="favorites-link"
                             onClick={onLinkClick}

@@ -11,17 +11,22 @@ import {
     ReducedArtworkCardWrapper,
     ReducedArtworkInfoWrapper
 } from "./styled";
-import noImage from '@assets/images/no-image.svg'
 import { ArtworkSaveButton } from "@components/save-button";
-import { imagePath } from "@utils/lib";
+import { getDomainСonfidentiality, imagePath } from "@utils/lib";
+import imagesObj from "@constants/images";
+import {
+    ARTWORK_ARTIST_MAX_LENGTH,
+    ARTWORK_TITLE_MAX_LENGTH,
+    UNKNOWN_ARTIST
+} from "@constants/const";
+import { Path } from "@constants/router";
+import { reduceString } from "@utils/lib/reduce-string";
 
 type ArtworkCardProps = {
     artwork: Artwork
 }
 
-export const FullArtworkCard = ({
-    artwork
-}: ArtworkCardProps) => {
+export const FullArtworkCard = ({ artwork }: ArtworkCardProps) => {
     const {
         id,
         image_id,
@@ -31,19 +36,21 @@ export const FullArtworkCard = ({
     } = artwork;
 
     return (
-        <ArtworkCardWrapper
-            style={{
-                backgroundImage: `url(${image_id ? imagePath(image_id) : noImage})`
-            }}
-        >
+        <ArtworkCardWrapper imageId={image_id}>
             <ArtworkCardInfoWrapper>
                 <ArtworkCardTextInfoWrapper>
                     <ArtworkCardTextHeader>
-                        <ArtworkCardTitleLink to={`/artworks/${id}`}>{title.length > 22 ? `${title.slice(0, 23)}...` : title}</ArtworkCardTitleLink>
-                        <ArtworkArtistName>{artist_title && artist_title.length > 23 ? `${artist_title.slice(0, 23)}...` : artist_title || 'Unknown'}</ArtworkArtistName>
+                        <ArtworkCardTitleLink to={`${Path.ARTWORKS}/${id}`}>
+                            {reduceString(title, ARTWORK_TITLE_MAX_LENGTH)}
+                        </ArtworkCardTitleLink>
+                        <ArtworkArtistName>
+                            {artist_title
+                                ? reduceString(artist_title, ARTWORK_ARTIST_MAX_LENGTH)
+                                : UNKNOWN_ARTIST
+                            }</ArtworkArtistName>
                     </ArtworkCardTextHeader>
                     <ArtworkPrivateInfoText>
-                        {is_public_domain ? 'Public' : 'Private'}
+                        {getDomainСonfidentiality(is_public_domain)}
                     </ArtworkPrivateInfoText>
                 </ArtworkCardTextInfoWrapper>
                 <ArtworkSaveButton artwork={artwork} />
@@ -67,14 +74,18 @@ export const ReducedArtworkCard = ({
     return (
         <ReducedArtworkCardWrapper data-testid="reduced-card">
             <ReducedArtworkInfoWrapper>
-                <ReducedArtworkCardImage src={image_id ? imagePath(image_id) : noImage} />
+                <ReducedArtworkCardImage src={image_id ? imagePath(image_id) : imagesObj.noImageIcon} />
                 <ArtworkCardTextInfoWrapper>
                     <ArtworkCardTextHeader>
-                        <ArtworkCardTitleLink to={`/artworks/${id}`}>{title.length > 20 ? `${title.slice(0, 20)}...` : title}</ArtworkCardTitleLink>
-                        <ArtworkArtistName>{artist_title || 'Unknown'}</ArtworkArtistName>
+                        <ArtworkCardTitleLink to={`${Path.ARTWORKS}/${id}`}>
+                            {title.length > ARTWORK_TITLE_MAX_LENGTH ?
+                                `${title.slice(0, ARTWORK_TITLE_MAX_LENGTH)}...`
+                                : title
+                            }</ArtworkCardTitleLink>
+                        <ArtworkArtistName>{artist_title || UNKNOWN_ARTIST}</ArtworkArtistName>
                     </ArtworkCardTextHeader>
                     <ArtworkPrivateInfoText>
-                        {is_public_domain ? 'Public' : 'Private'}
+                        {getDomainСonfidentiality(is_public_domain)}
                     </ArtworkPrivateInfoText>
                 </ArtworkCardTextInfoWrapper>
             </ReducedArtworkInfoWrapper>

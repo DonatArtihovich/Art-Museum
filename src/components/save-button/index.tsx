@@ -9,8 +9,12 @@ type ArtworkSaveButtonProps = {
     background?: string;
 }
 
-export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0.3)' }: ArtworkSaveButtonProps) {
-    const { isArtworkSaved, saveArtwork, removeArtwork } = useRequiredContext(StorageContext);
+export function ArtworkSaveButton({ artwork, background }: ArtworkSaveButtonProps) {
+    const {
+        isArtworkSaved,
+        saveArtwork,
+        removeArtwork
+    } = useRequiredContext(StorageContext);
     const isSaved = isArtworkSaved(artwork.id);
 
     const onButtonClick = () => {
@@ -24,7 +28,6 @@ export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0
     return (
         <Button
             onClick={onButtonClick}
-            style={{ background }}
             background={background}
             data-testid="save-button"
         >
