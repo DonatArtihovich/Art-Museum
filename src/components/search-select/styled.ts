@@ -33,5 +33,5 @@ export const ErrorText = styled.p`
     font-size: 16px;
     text-transform: underline;
     position: absolute;
-    top: 80%;
+    top: 60px;
 `

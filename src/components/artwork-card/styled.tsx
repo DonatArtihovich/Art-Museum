@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import styled, { css, keyframes } from "styled-components"
 import imagesObj from "@constants/images"
 import { imagePath } from "@utils/lib"
+import { Breakpoints } from "@constants/style"
 
 const moveUp = keyframes`
     from {
@@ -40,21 +41,25 @@ export const ArtworkCardInfoWrapper = styled.div`
     justify-content: space-between;
     pointer-events: none;
 
-    @media(max-width: 1440px) {
-        width: 22vw;
+    @media(max-width: ${Breakpoints.XL}px) {
+        width: 280px;
         padding: 24px 16px;
     }
 
-    @media(max-width: 900px) {
-        width: 23.5vw;
+    @media(max-width: ${Breakpoints.L}px) {
+        width: 220px;
     }
 
-    @media(max-width: 800px) {
-        width: 30vw;
+    @media(max-width: ${Breakpoints.M}px) {
+        width: 200px;
     }
 
-    @media(max-width: 500px) {
-        width: 56vw;
+    @media(max-width: ${Breakpoints.S}px) {
+        width: 280px;
+    }
+
+    @media(max-width: ${Breakpoints.XS}px) {
+        width: 260px;
     }
 `
 
@@ -89,24 +94,25 @@ export const ArtworkCardWrapper = styled(
         bottom: 10%;
     }
 
-    @media(max-width: 1440px) {
-        width: 25vw;
+    @media(max-width: ${Breakpoints.XL}px) {
+        width: 320px;
     }
 
-    @media(max-width: 1200px) {
+    @media(max-width: ${Breakpoints.L}px) {
         height: 350px;
+        width: 260px;
     }
 
-    @media(max-width: 900px) {
-        width: 27vw;
+    @media(max-width: ${Breakpoints.M}px) {
+        width: 240px;
     }
 
-    @media(max-width: 800px) {
-        width: 35vw;
+    @media(max-width: ${Breakpoints.S}px) {
+        width: 320px;
     }
 
-    @media(max-width: 500px) {
-        width: 65vw;
+    @media(max-width: ${Breakpoints.XS}px) {
+        width: 300px;
     }
 `
 
@@ -116,7 +122,7 @@ flex-direction: column;
 gap: 12px;
 height: 98px;
 
-@media(max-width: 1440px) {
+@media(max-width: ${Breakpoints.XL}px) {
     gap: 0px;
     justify-content: space-between;
 }
@@ -151,11 +157,11 @@ pointer-events: auto;
     text-decoration: underline;
 }
 
-@media(max-width: 1440px) {
+@media(max-width: ${Breakpoints.XL}px) {
     font-size: 16px;
 }
 
-@media(max-width: 960px) {
+@media(max-width: ${Breakpoints.M}px) {
     font-size: 14px;
 }
 `
@@ -168,7 +174,7 @@ line-height: 171%;
 letter-spacing: -0.01em;
 color: #e0a449;
 
-@media(max-width: 960px) {
+@media(max-width: ${Breakpoints.M}px) {
     font-size: 12px;
 }
 `
@@ -185,16 +191,16 @@ justify-content: space-between;
 align-items: center;
 box-sizing: border-box;
 
-@media(max-width: 900px) {
-    width: 40vw;
+@media(max-width: ${Breakpoints.M}px) {
+    width: 300px;
 }
 
-@media(max-width: 670px) {
-    width: 60vw;
+@media(max-width: ${Breakpoints.S}px) {
+    width: 450px;
 }
 
-@media(max-width: 450px) {
-    width: 80vw;
+@media(max-width: ${Breakpoints.XS}px) {
+    width: 360px;
 }
 `
 

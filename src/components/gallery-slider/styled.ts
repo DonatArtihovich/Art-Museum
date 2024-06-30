@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style";
 import styled from "styled-components";
 
 export const GallerySliderWrapper = styled.div`
@@ -13,7 +14,7 @@ export const ArtworkCardsList = styled.ul`
     gap: 60px;
     padding: 0;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         gap: 30px;    
     }
 `

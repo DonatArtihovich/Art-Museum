@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { HTMLProps } from "react";
+import { Breakpoints } from "@constants/style";
 
 export const Link = styled(RouterLink)`
     text-decoration: none;
@@ -62,14 +63,14 @@ export const NavList = styled(
             left: 0;
         `
         : css`
-            left: -80vw;   
+            left: -390px;   
         `
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         position: absolute;
         flex-direction: column;
-        width: 80vw;
+        width: 390px;
         top: 0;
         bottom: 0;
         align-items: center;
@@ -87,7 +88,7 @@ export const MenuBackground = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
-    height: 100vh;
+    height: 100vh;  
     background: rgb(0, 0, 0, 0.7);
     z-index: 90;
 `
@@ -140,11 +141,11 @@ export const BurgerButton = styled(
         `
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         display: flex;
     }
 
-    @media(max-width: 440px) {
+    @media(max-width: ${Breakpoints.XS}px) {
         left: 25px;
     }
 `

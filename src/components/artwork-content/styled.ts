@@ -1,17 +1,18 @@
+import { Breakpoints } from "@constants/style";
 import styled from "styled-components";
 
 export const MainWrapper = styled.main`
     padding: 120px 0;
-    min-height: 60vh;
+    min-height: 600px;
     display: flex;
     gap: 80px;
     justify-content: center;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         gap: 40px;
     }
       
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         flex-direction: column;
         align-items: center;
     }
@@ -36,17 +37,12 @@ export const ArtworkImage = styled.img`
     max-width: 497px;
     height: auto;
 
-    @media(max-width: 1200px) {
+    @media(max-width: ${Breakpoints.L}px) {
         max-width: 400px;
     }
 
-    @media(max-width: 960px) {
-    min-width: 40vw;
-        max-width: 300px;
-    }
-
-    @media(max-width: 700px) {
-        min-width: 50vw;
+    @media(max-width: ${Breakpoints.M}px) {
+        min-width: 280px;
         max-width: 300px;
     }
 `
@@ -56,16 +52,16 @@ export const TextContentWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    @media(max-width: 1200px) {
-        width: 30vw;
+    @media(max-width: ${Breakpoints.L}px) {
+        width: 400px;
     }
 
-    @media(max-width: 960px) {
-        width: 40vw;
+    @media(max-width: ${Breakpoints.M}px) {
+        width: 300px;
     }
 
-    @media(max-width: 700px) {
-        width: 70vw;
+    @media(max-width: ${Breakpoints.S}px) {
+        width: 330px;
         gap: 100px;
     }
 `
@@ -75,7 +71,7 @@ export const SectionWrapper = styled.div`
     flex-direction: column;
     gap: 32px;
 
-    @media(max-width: 1200px) {
+    @media(max-width: ${Breakpoints.L}px) {
         gap: 8px;
     }
 `
@@ -88,11 +84,11 @@ export const SectionHeader = styled.h2`
     margin: 0;
     max-width: 500px;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         font-size: 24px;
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         font-size: 32px;
     }
 `

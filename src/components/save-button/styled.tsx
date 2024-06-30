@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style";
 import { HTMLProps } from "react";
 import styled, { css } from "styled-components"
 
@@ -29,7 +30,7 @@ export const ArtworkSaveButton = styled((
         cursor: pointer;
     }
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         width: 40px;
         height: 40px;
     }
@@ -39,7 +40,7 @@ export const ArtworkSaveImage = styled.img`
     width: 25px;
     height: 25px;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         width: 20px;
         height: 20px;
     }

@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style"
 import styled from "styled-components"
 
 export const FavoritesWrapper = styled.main`
@@ -6,7 +7,7 @@ export const FavoritesWrapper = styled.main`
     flex-direction: column;
     align-items: center;
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         padding: 60px 0 100px;
     }
 `
@@ -20,7 +21,7 @@ export const HeaderText = styled.h1`
     text-align: center;
     color: #393939;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         font-size: 36px;  
     }
 `
@@ -33,7 +34,7 @@ export const HeaderIcon = styled.img`
     width: 74px;
     height: 74px;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         width: 50px;
         height: 50px; 
     }

@@ -10,6 +10,7 @@ import { useWindowWidth } from "@utils/react/hooks";
 import { Pagination } from "@components/pagination";
 import { useFetch } from "@utils/react/hooks/use-fetch";
 import { NOTHING_FIND_TEXT } from "@constants/const";
+import { Breakpoints } from "@constants/style";
 
 type GallerySliderProps = {
     query: string;
@@ -20,9 +21,9 @@ type GallerySliderProps = {
 
 export default function GallerySlider({ query, sorting, page, setPage }: GallerySliderProps) {
     const windowWidth = useWindowWidth();
-    const cardsOnPage = windowWidth > 800
+    const cardsOnPage = windowWidth > Breakpoints.M
         ? 3
-        : windowWidth > 500
+        : windowWidth > Breakpoints.S
             ? 2
             : 1;
 

@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style"
 import styled from "styled-components"
 
 export const PaginationWrapper = styled.div`
@@ -6,7 +7,7 @@ export const PaginationWrapper = styled.div`
     gap: 15px;
     align-self: flex-end;
 
-    @media(max-width: 500px) {
+    @media(max-width: ${Breakpoints.XS}px) {
         align-self: center;
     }
 `

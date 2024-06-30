@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style";
 import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
@@ -10,12 +11,12 @@ export const FooterWrapper = styled.footer`
     justify-content: space-between;
     margin: 0 auto;
 
-    @media(max-width: 1440px) {
+    @media(max-width: ${Breakpoints.XL}px) {
         padding: 0 20px;
         width: auto;
     }
 
-    @media(max-width: 500px) {
+    @media(max-width: ${Breakpoints.XS}px) {
         flex-direction: column;
         gap: 20px;
         padding-bottom: 30px;

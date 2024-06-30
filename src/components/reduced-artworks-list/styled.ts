@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style";
 import styled from "styled-components";
 
 export const ListWrapper = styled.ul`
@@ -9,7 +10,7 @@ export const ListWrapper = styled.ul`
     max-width: 1280px;
     padding: 0;
 
-    @media(max-width: 1440px) {
+    @media(max-width: ${Breakpoints.XL}px) {
         justify-content: center;
     }
 `

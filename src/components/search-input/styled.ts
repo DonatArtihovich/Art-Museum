@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style"
 import styled from "styled-components"
 
 export const SearchInputWrapper = styled.div`
@@ -10,8 +11,12 @@ export const SearchInputWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media(max-width: 960px) {
-        width: 70vw; 
+    @media(max-width: ${Breakpoints.M}px) {
+        width: 500px;
+    }
+
+    @media(max-width: ${Breakpoints.S}px) {
+        width: 370px;
     }
 `
 
@@ -54,5 +59,5 @@ export const ErrorText = styled.p`
     font-size: 16px;
     text-transform: underline;
     position: absolute;
-    top: 80%;
+    top: 60px;
 `

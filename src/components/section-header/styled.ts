@@ -1,3 +1,4 @@
+import { Breakpoints } from "@constants/style"
 import styled from "styled-components"
 
 export const SectionHeader = styled.header`
@@ -5,7 +6,7 @@ export const SectionHeader = styled.header`
     display: flex;
     flex-direction: column;
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         margin: 90px 0 30px;
     }
 `
