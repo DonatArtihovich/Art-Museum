@@ -134,21 +134,25 @@ flex-direction: column;
 `
 
 export const ArtworkPrivateInfoText = styled.span`
-font-family: var(--second-family);
 font-weight: 700;
 font-size: 15px;
-line-height: 171 %;
+line-height: 171%;
 letter-spacing: -0.01em;
-color: #393939;
+${(props) => css`
+    color: ${props.theme.colors.primaryText};
+    font-family: ${props.theme.fonts.secondary};    
+`}
 `
 
 export const ArtworkCardTitleLink = styled(Link)`
-font-family: var(--second-family);
 font-weight: 500;
 font-size: 17px;
-line-height: 150 %;
+line-height: 150%;
 letter-spacing: -0.03em;
-color: #393939;
+${(props) => css`
+    color: ${props.theme.colors.primaryText};
+    font-family: ${props.theme.fonts.secondary};    
+`}
 margin: 0;
 text-decoration: none;
 pointer-events: auto;
@@ -167,12 +171,14 @@ pointer-events: auto;
 `
 
 export const ArtworkArtistName = styled.span`
-font-family: var(--second-family);
 font-weight: 400;
 font-size: 15px;
 line-height: 171%;
 letter-spacing: -0.01em;
-color: #e0a449;
+${(props) => css`
+    color: ${props.theme.colors.secondaryText};
+    font-family: ${props.theme.fonts.secondary};    
+`}
 
 @media(max-width: ${Breakpoints.M}px) {
     font-size: 12px;

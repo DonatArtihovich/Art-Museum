@@ -1,5 +1,5 @@
 import { Breakpoints } from "@constants/style";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MainWrapper = styled.main`
     padding: 120px 0;
@@ -80,7 +80,10 @@ export const SectionHeader = styled.h2`
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 32px;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.primaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     margin: 0;
     max-width: 500px;
 
@@ -103,7 +106,7 @@ export const ArtistTitle = styled.p`
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 24px;
-    color: #e0a449;
+    ${(props) => css`color: ${props.theme.colors.secondaryText};`}
     margin: 0;
 `
 
@@ -111,7 +114,7 @@ export const ArtistYears = styled.p`
     font-family: var(--second-family);
     font-weight: 700;
     font-size: 16px;
-    color: #393939;
+    ${(props) => css`color: ${props.theme.colors.primaryText};`}
     margin: 0;
 `
 
@@ -128,10 +131,10 @@ export const OverviewInfoItem = styled.li`
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 16px;
-    color: #393939;
+    ${(props) => css`color: ${props.theme.colors.primaryText};`}
     max-width: 500px;
 `
 
 export const InfoHeader = styled.span`
-    color: #e0a449;
+    ${(props) => css`color: ${props.theme.colors.secondaryText};`}
 `

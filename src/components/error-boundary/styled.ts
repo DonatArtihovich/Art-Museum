@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -7,19 +7,21 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    background: var(--secondary-color);
+    ${(props) => css`background: ${props.theme.colors.secondary};`}
 `
 
 export const ErrorText = styled.h1`
     font-size: 30px;
-    font-family: var(--second-family);
+    ${(props) => css`font-family: ${props.theme.fonts.secondary}`};
 `
 
 export const ResetButton = styled.button`
     padding: 15px 30px;
     background: #343333;
-    font-family: var(--second-family);
-    color: var(--secondary-color);
+    ${(props) => css`
+        background: ${props.theme.colors.secondary};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     border-radius: 10px;
     border: none;
 `

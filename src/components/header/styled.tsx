@@ -103,7 +103,10 @@ export const NavListItemTitle = styled.span`
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
-    color: #fff;
+    ${(props) => css`
+        color: ${props.theme.colors.otherText};
+        font-family: ${props.theme.fonts.primary};
+    `}
 `
 
 export const NavListItemImage = styled.img`
@@ -153,5 +156,5 @@ export const BurgerButton = styled(
 export const BurgerLine = styled.span`
     width: 100%;
     height: 2px;
-    background-color: var(--secondary-color);
+    ${(props) => css`background-color: ${props.theme.colors.secondary};`}
 `

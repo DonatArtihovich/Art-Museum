@@ -1,5 +1,5 @@
 import { Breakpoints } from "@constants/style"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const SectionHeader = styled.header`
     margin: 120px 0 40px;
@@ -12,18 +12,22 @@ export const SectionHeader = styled.header`
 `
 
 export const SectionHeaderTitle = styled.h2`
-    font-family: var(--second-family);
     font-weight: 400;
     font-size: 32px;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.primaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     margin: 0;
     text-align: center;
 `
 
 export const SectionHeaderSubtitle = styled.span`
-    font-family: var(--second-family);
     font-weight: 400;
     font-size: 16px;
-    color: #e0a449;
+    ${(props) => css`
+        color: ${props.theme.colors.secondaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     text-align: center;
 `

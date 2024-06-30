@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const SelectWrapper = styled.select`
     padding: 15px;
     border-radius: 10px;
-    border: 2px solid var(--secondary-color);
+    ${(props) => css`border: 2px solid ${props.theme.colors.secondary};`}
     outline: none;
-    color: #393939;
+    ${(props) => css`color: ${props.theme.colors.primaryText};`}
     font-family: var(--second-family);
     align-self: flex-end;
     position: relative;
@@ -20,7 +20,7 @@ export const SelectWrapper = styled.select`
 `
 
 export const SelectOption = styled.option`
-    color: var(--secondary-color);
+    ${(props) => css`color: ${props.theme.colors.secondary};`}
 
     &:hover {
         cursor: pointer;
@@ -28,8 +28,10 @@ export const SelectOption = styled.option`
 `
 
 export const ErrorText = styled.p`
-    font-family: var(--second-family);
-    color: red;
+    ${(props) => css`
+        color: ${props.theme.colors.errorText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     font-size: 16px;
     text-transform: underline;
     position: absolute;

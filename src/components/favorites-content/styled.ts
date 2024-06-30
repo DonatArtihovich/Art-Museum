@@ -1,5 +1,5 @@
 import { Breakpoints } from "@constants/style"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const FavoritesWrapper = styled.main`
     padding: 120px 0;
@@ -14,12 +14,14 @@ export const FavoritesWrapper = styled.main`
 
 export const HeaderText = styled.h1`
     margin: 0;
-    font-family: var(--second-family);
     font-weight: 700;
     font-size: 64px;
     text-transform: capitalize;
     text-align: center;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.primaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
 
     @media(max-width: ${Breakpoints.M}px) {
         font-size: 36px;  
@@ -27,7 +29,7 @@ export const HeaderText = styled.h1`
 `
 
 export const SpecialHeaderText = styled.span`
-    color: #f17900;
+    ${(props) => css`color: ${props.theme.colors.special};`}
 `
 
 export const HeaderIcon = styled.img`
@@ -46,10 +48,12 @@ export const SpecialHeaderTextWrapper = styled.div`
 `
 export const NoFavoritesText = styled.p`
     margin: 0;
-    font-family: var(--second-family);
     font-weight: 700;
     font-size: 34px;
     text-transform: capitalize;
     text-align: center;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.primaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
 `
