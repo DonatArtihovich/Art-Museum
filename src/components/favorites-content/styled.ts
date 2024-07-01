@@ -2,13 +2,13 @@ import { Breakpoints } from "@constants/style"
 import styled, { css } from "styled-components"
 
 export const FavoritesWrapper = styled.main`
-    padding: 120px 0;
+    ${(props) => css`padding: ${props.theme.paddings.XXL}px 0;`}
     display: flex;
     flex-direction: column;
     align-items: center;
 
     @media(max-width: ${Breakpoints.S}px) {
-        padding: 60px 0 100px;
+        ${({theme}) => css`padding: ${theme.paddings.L}px 0 ${theme.paddings.XL}px;`}
     }
 `
 

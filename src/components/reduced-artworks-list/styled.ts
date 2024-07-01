@@ -1,12 +1,12 @@
 import { Breakpoints } from "@constants/style";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ListWrapper = styled.ul`
     margin: 0 auto;
     list-style: none;    
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    ${(props) => css`gap: ${props.theme.paddings.XS}px;`}
     max-width: 1280px;
     padding: 0;
 

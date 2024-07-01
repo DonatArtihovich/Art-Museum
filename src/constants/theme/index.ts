@@ -16,9 +16,19 @@ const THEME_FONTS = {
     secondary: 'Lexend Deca, sans-serif'
 }
 
+const THEME_PADDINGS = {
+    XXL: 120,
+    XL: 80,
+    L: 40,
+    M: 32,
+    S: 24,
+    XS: 16
+}
+
 const THEME = {
      colors: THEME_COLORS,
-     fonts: THEME_FONTS
+     fonts: THEME_FONTS,
+     paddings: THEME_PADDINGS
 }
 
 export default THEME;

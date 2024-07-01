@@ -2,12 +2,12 @@ import { Breakpoints } from "@constants/style"
 import styled, { css } from "styled-components"
 
 export const SectionHeader = styled.header`
-    margin: 120px 0 40px;
+    ${({theme}) => css`margin: ${theme.paddings.XXL}px 0 ${theme.paddings.L}px;`}
     display: flex;
     flex-direction: column;
 
     @media(max-width: ${Breakpoints.S}px) {
-        margin: 90px 0 30px;
+        ${({theme}) => css`margin: ${theme.paddings.XL}px 0 ${theme.paddings.M}px;`}
     }
 `
 

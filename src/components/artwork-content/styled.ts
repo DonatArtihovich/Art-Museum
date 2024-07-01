@@ -2,7 +2,7 @@ import { Breakpoints } from "@constants/style";
 import styled, { css } from "styled-components";
 
 export const MainWrapper = styled.main`
-    padding: 120px 0;
+    ${(props) => css`padding: ${props.theme.paddings.XXL}px 0;`}
     min-height: 600px;
     display: flex;
     gap: 80px;
