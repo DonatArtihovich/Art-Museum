@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Link as RouterLink } from "react-router-dom";
-import { HTMLProps } from "react";
 import { Breakpoints } from "@constants/style";
+import { HTMLProps } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 export const Link = styled(RouterLink)`
     text-decoration: none;

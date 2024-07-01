@@ -1,4 +1,5 @@
 import imagesObj from "@constants/images";
+
 import { FooterWrapper, LogoImage, ModsenImage } from "./styled";
 
 export default function Footer() {

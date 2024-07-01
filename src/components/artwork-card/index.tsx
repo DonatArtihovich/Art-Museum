@@ -1,3 +1,14 @@
+import { ArtworkSaveButton } from "@components/save-button";
+import {
+    ARTWORK_ARTIST_MAX_LENGTH,
+    ARTWORK_TITLE_MAX_LENGTH,
+    UNKNOWN_ARTIST
+} from "@constants/const";
+import imagesObj from "@constants/images";
+import { Path } from "@constants/router";
+import { getDomainСonfidentiality, imagePath } from "@utils/lib";
+import { reduceString } from "@utils/lib/reduce-string";
+
 import {
     ArtworkArtistName,
     ArtworkCardInfoWrapper,
@@ -11,16 +22,6 @@ import {
     ReducedArtworkCardWrapper,
     ReducedArtworkInfoWrapper
 } from "./styled";
-import { ArtworkSaveButton } from "@components/save-button";
-import { getDomainСonfidentiality, imagePath } from "@utils/lib";
-import imagesObj from "@constants/images";
-import {
-    ARTWORK_ARTIST_MAX_LENGTH,
-    ARTWORK_TITLE_MAX_LENGTH,
-    UNKNOWN_ARTIST
-} from "@constants/const";
-import { Path } from "@constants/router";
-import { reduceString } from "@utils/lib/reduce-string";
 
 type ArtworkCardProps = {
     artwork: Artwork

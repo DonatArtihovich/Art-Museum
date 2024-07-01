@@ -1,9 +1,8 @@
 import { 
+    debounce,
     getArtistNacionality,
     getArtistYears, 
-    imagePath, 
-    debounce
-} from "./index";
+    imagePath} from "./index";
 
 describe(getArtistYears, () => {
 

@@ -1,10 +1,10 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 type StorageContext = {
-    savedArtworks: Artwork[];
-    saveArtwork: (artwork: Artwork) => void;
-    removeArtwork: (id: number) => void;
-    isArtworkSaved: (id: number) => boolean;
-}
+  savedArtworks: Artwork[];
+  saveArtwork: (_: Artwork) => void;
+  removeArtwork: (_: number) => void;
+  isArtworkSaved: (_: number) => boolean;
+};
 
-export const StorageContext = createContext<StorageContext | null>(null)
+export const StorageContext = createContext<StorageContext | null>(null);

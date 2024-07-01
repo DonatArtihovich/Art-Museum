@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { useParams } from "react-router-dom";
-import { ArtworkPageContent } from "./index";
 import { useFetch } from "@utils/react/hooks/use-fetch";
+import { useParams } from "react-router-dom";
+
+import { ArtworkPageContent } from "./index";
 
 jest.mock("@utils/api");
 jest.mock("react-router-dom", () => ({

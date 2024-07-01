@@ -1,8 +1,8 @@
+import imagesObj from "@constants/images"
+import { Breakpoints } from "@constants/style"
+import { imagePath } from "@utils/lib"
 import { Link } from "react-router-dom"
 import styled, { css, keyframes } from "styled-components"
-import imagesObj from "@constants/images"
-import { imagePath } from "@utils/lib"
-import { Breakpoints } from "@constants/style"
 
 const moveUp = keyframes`
     from {

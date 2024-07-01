@@ -1,13 +1,7 @@
-import {
-    HeaderText,
-    MainWrapper,
-    SpecialHeaderText
-} from "./styled";
-import GallerySlider from "@components/gallery-slider";
-import { useState } from "react";
-import { SectionHeader } from "@components/section-header";
 import { AdditionalArtworksSection } from "@components/additional-artworks-section";
+import GallerySlider from "@components/gallery-slider";
 import { SearchForm } from "@components/search-form";
+import { SectionHeader } from "@components/section-header";
 import {
     FIRST_PAGE,
     MAIN_GALLERY_SECTION_HEADER,
@@ -15,6 +9,13 @@ import {
     MAIN_OTHER_SECTION_HEADER,
     MAIN_OTHER_SECTION_SUBTITLE
 } from "@constants/const";
+import { useState } from "react";
+
+import {
+    HeaderText,
+    MainWrapper,
+    SpecialHeaderText
+} from "./styled";
 
 export default function MainContent() {
     const [query, setQuery] = useState<string>('');
@@ -24,7 +25,7 @@ export default function MainContent() {
     return (
         <MainWrapper>
             <HeaderText>
-                let's find some <SpecialHeaderText>Art</SpecialHeaderText><br />here!
+                let&apos;s find some <SpecialHeaderText>Art</SpecialHeaderText><br />here!
             </HeaderText>
             <SearchForm
                 setQuery={setQuery}

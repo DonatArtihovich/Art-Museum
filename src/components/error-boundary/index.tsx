@@ -1,9 +1,10 @@
-import { useErrorBoundary, withErrorBoundary } from "react-use-error-boundary";
-import { ErrorText, ResetButton, Wrapper } from "./styled";
 import {
     ERROR_BOUNDARY_BUTTON_TITLE,
     ERROR_BOUNDARY_TITLE
 } from "@constants/const";
+import { useErrorBoundary, withErrorBoundary } from "react-use-error-boundary";
+
+import { ErrorText, ResetButton, Wrapper } from "./styled";
 
 type ErrorBoundaryProps = {
     children: React.ReactNode;

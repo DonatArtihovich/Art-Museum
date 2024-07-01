@@ -1,15 +1,16 @@
 import { Input } from "@components/search-input";
 import { SearchSelect } from "@components/search-select";
+import { FIRST_PAGE, SEARCH_INPUT_PLACEHOLDER } from "@constants/const";
 import { formSchema } from "@utils/form";
 import { debounce } from "@utils/lib";
 import { Formik } from "formik";
+
 import { Form } from "./styled";
-import { FIRST_PAGE, SEARCH_INPUT_PLACEHOLDER } from "@constants/const";
 
 type SearchFormProps = {
-    setQuery: (query: string) => void;
-    setSorting: (sorting: string) => void;
-    setPage: (page: number) => void;
+    setQuery: (_: string) => void;
+    setSorting: (_: string) => void;
+    setPage: (_: number) => void;
 }
 
 export function SearchForm({

@@ -1,10 +1,11 @@
 import { fireEvent, render } from "@testing-library/react";
-import Header from "./index";
 import { MemoryRouter } from "react-router-dom";
+
+import Header from "./index";
 // import { describe, expect, it } from '@jest/globals'
 
 describe(Header, () => {
-    let mockUseLocation = jest.fn();
+    const mockUseLocation = jest.fn();
     mockUseLocation.mockReturnValue({
         pathname: '/'
     });

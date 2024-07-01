@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainPage from "@pages/main";
-import FavoritesPage from "@pages/favourites";
-import ArtworkPage from "@pages/artwork";
 import { Path } from "@constants/router";
+import ArtworkPage from "@pages/artwork";
+import FavoritesPage from "@pages/favourites";
+import MainPage from "@pages/main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 type RouteProps = {
     path: Path;

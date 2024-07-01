@@ -1,13 +1,13 @@
-import { InputHTMLAttributes } from "react";
-import {
-    SearchInputWrapper,
-    SearchInput,
-    SearchImage,
-    SearchButton,
-    Wrapper,
-    ErrorText
-} from "./styled";
 import imagesObj from "@constants/images";
+import { InputHTMLAttributes } from "react";
+
+import {
+    ErrorText,
+    SearchButton,
+    SearchImage,
+    SearchInput,
+    SearchInputWrapper,
+    Wrapper} from "./styled";
 
 type InputProps = {
     error: string | undefined;

@@ -1,7 +1,8 @@
-import { ClipLoader } from "react-spinners";
-import { LoaderWrapper } from "./styled";
 import { LOADER_SIZE } from "@constants/const";
+import { ClipLoader } from "react-spinners";
 import { useTheme } from "styled-components";
+
+import { LoaderWrapper } from "./styled";
 
 export default function Loader() {
     const theme = useTheme();

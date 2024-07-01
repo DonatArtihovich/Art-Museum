@@ -1,6 +1,7 @@
-import { SelectHTMLAttributes } from "react";
-import { ErrorText, SelectOption, SelectWrapper } from "./styled";
 import { sortingOptions } from "@constants/const";
+import { SelectHTMLAttributes } from "react";
+
+import { ErrorText, SelectOption, SelectWrapper } from "./styled";
 
 type SelectProps = {
     error: string | undefined;

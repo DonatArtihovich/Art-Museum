@@ -1,22 +1,23 @@
+import { FullArtworkCard } from "@components/artwork-card";
+import Loader from "@components/loader";
+import { Pagination } from "@components/pagination";
+import { NOTHING_FIND_TEXT } from "@constants/const";
+import { Breakpoints } from "@constants/style";
+import { searchArtworksPath } from "@utils/api";
+import { useWindowWidth } from "@utils/react/hooks";
+import { useFetch } from "@utils/react/hooks/use-fetch";
+
 import {
     ArtworkCardsList,
     GallerySliderWrapper,
     NoArtworksText
 } from "./styled";
-import { searchArtworksPath } from "@utils/api";
-import { FullArtworkCard } from "@components/artwork-card";
-import Loader from "@components/loader";
-import { useWindowWidth } from "@utils/react/hooks";
-import { Pagination } from "@components/pagination";
-import { useFetch } from "@utils/react/hooks/use-fetch";
-import { NOTHING_FIND_TEXT } from "@constants/const";
-import { Breakpoints } from "@constants/style";
 
 type GallerySliderProps = {
     query: string;
     sorting: string;
     page: number;
-    setPage: (page: number) => void;
+    setPage: (_: number) => void;
 }
 
 export default function GallerySlider({ query, sorting, page, setPage }: GallerySliderProps) {

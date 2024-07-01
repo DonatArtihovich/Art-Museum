@@ -1,3 +1,7 @@
+import imagesObj from "@constants/images";
+import { useState } from "react";
+import { LinkProps, useLocation } from "react-router-dom";
+
 import {
     BurgerButton,
     BurgerLine,
@@ -11,9 +15,6 @@ import {
     NavListItemImage,
     NavListItemTitle
 } from "./styled";
-import { LinkProps, useLocation } from "react-router-dom";
-import { useState } from "react";
-import imagesObj from "@constants/images";
 
 type NavLinkProps = {
     image: string;

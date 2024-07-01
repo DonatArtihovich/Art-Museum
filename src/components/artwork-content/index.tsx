@@ -1,5 +1,18 @@
+import Loader from "@components/loader";
+import { ArtworkSaveButton } from "@components/save-button";
+import imagesObj from "@constants/images";
+import { Path } from "@constants/router";
+import { getArtworkPath } from "@utils/api";
+import {
+    getArtistNacionality,
+    getArtistYears,
+    getDomainСonfidentiality,
+    imagePath
+} from "@utils/lib";
+import { useFetch } from "@utils/react/hooks/use-fetch";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom"
+
 import {
     ArtistDataWrapper,
     ArtistTitle,
@@ -15,18 +28,6 @@ import {
     SectionWrapper,
     TextContentWrapper
 } from "./styled";
-import {
-    getArtistYears,
-    getArtistNacionality,
-    imagePath,
-    getDomainСonfidentiality
-} from "@utils/lib";
-import { ArtworkSaveButton } from "@components/save-button";
-import Loader from "@components/loader";
-import imagesObj from "@constants/images";
-import { useFetch } from "@utils/react/hooks/use-fetch";
-import { getArtworkPath } from "@utils/api";
-import { Path } from "@constants/router";
 
 export function ArtworkPageContent() {
     const { id } = useParams();

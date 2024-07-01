@@ -1,7 +1,7 @@
 import { 
+    ARTWORK_FIELDS,
     ARTWORKS_PATH,
     ARTWORKS_SEARCH_PATH,
-    ARTWORK_FIELDS,
     FULL_ARTWORK_FIELDS,
     sortingFields
 } from "@constants/api"

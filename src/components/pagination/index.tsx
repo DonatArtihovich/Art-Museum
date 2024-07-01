@@ -1,4 +1,6 @@
+import { FIRST_PAGE } from "@constants/const";
 import imagesObj from "@constants/images";
+
 import {
     ActivePageNumber,
     ArrowButton,
@@ -8,11 +10,10 @@ import {
     PaginationWrapper,
     RightPaginationArrowImage
 } from "./styled";
-import { FIRST_PAGE } from "@constants/const";
 
 type PaginationProps = {
     page: number;
-    setPage: (page: number) => void;
+    setPage: (_: number) => void;
     totalPages: number;
 }
 

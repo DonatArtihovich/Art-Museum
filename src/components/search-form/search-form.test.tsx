@@ -1,4 +1,5 @@
 import { render, waitFor } from "@testing-library/react";
+
 import { SearchForm } from "./index";
 
 describe(SearchForm, () => {
