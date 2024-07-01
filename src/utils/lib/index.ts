@@ -1,3 +1,5 @@
-export {imagePath} from './image-path'
-export {getArtistYears, getArtistNacionality} from './artist-info'
+export {getArtistNacionality,getArtistYears} from './artist-info'
 export {debounce} from './debounce'
+export {getDomainСonfidentiality} from './domain'
+export {imagePath} from './image-path'
+export {reduceString} from './reduce-string'

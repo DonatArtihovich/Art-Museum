@@ -1,3 +1,6 @@
+import { FIRST_PAGE } from "@constants/const";
+import imagesObj from "@constants/images";
+
 import {
     ActivePageNumber,
     ArrowButton,
@@ -7,17 +10,18 @@ import {
     PaginationWrapper,
     RightPaginationArrowImage
 } from "./styled";
-import arrowImage from '@assets/images/arrow.svg'
 
-export const Pagination = ({ page, setPage, totalPages }: {
+type PaginationProps = {
     page: number;
-    setPage: (page: number) => void;
+    setPage: (_: number) => void;
     totalPages: number;
-}) => (
+}
+
+export const Pagination = ({ page, setPage, totalPages }: PaginationProps) => (
     <PaginationWrapper>
-        {page > 1 &&
+        {page > FIRST_PAGE &&
             <ArrowButton onClick={() => setPage(page - 1)} data-testid="left-arrow">
-                <LeftPaginationArrowImage src={arrowImage} />
+                <LeftPaginationArrowImage src={imagesObj.arrowIcon} />
             </ArrowButton>}
         <NumbersWrapper>
             {Array.from({ length: totalPages < 4 ? totalPages : 4 }).map((_, idx) => {
@@ -35,7 +39,7 @@ export const Pagination = ({ page, setPage, totalPages }: {
         </NumbersWrapper>
         {page < totalPages &&
             <ArrowButton onClick={() => setPage(page + 1)} data-testid='right-arrow'>
-                <RightPaginationArrowImage src={arrowImage} />
+                <RightPaginationArrowImage src={imagesObj.arrowIcon} />
             </ArrowButton>
         }
     </PaginationWrapper>

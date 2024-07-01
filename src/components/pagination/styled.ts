@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import { Breakpoints } from "@constants/style"
+import styled, { css } from "styled-components"
 
 export const PaginationWrapper = styled.div`
     display: flex;
@@ -6,7 +7,7 @@ export const PaginationWrapper = styled.div`
     gap: 15px;
     align-self: flex-end;
 
-    @media(max-width: 500px) {
+    @media(max-width: ${Breakpoints.XS}px) {
         align-self: center;
     }
 `
@@ -32,11 +33,13 @@ export const PageNumber = styled.button`
     height: 30px;
     background: transparent;
     border: none;
-    font-family: var(--second-family);
     font-weight: 300;
     font-size: 18px;
     line-height: 133%;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.primaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     text-align: center;
 
     &:hover {
@@ -47,10 +50,12 @@ export const PageNumber = styled.button`
 export const ActivePageNumber = styled(PageNumber)`
     border-radius: 4px;    
     background: #f17900;
-    font-family: var(--second-family);
     font-weight: 600;
     line-height: 128%;
-    color: #fff;
+    ${(props) => css`
+        color: ${props.theme.colors.otherText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
 `
 
 export const ArrowButton = styled.button`

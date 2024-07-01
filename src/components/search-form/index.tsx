@@ -1,13 +1,16 @@
 import { Input } from "@components/search-input";
 import { SearchSelect } from "@components/search-select";
+import { FIRST_PAGE, SEARCH_INPUT_PLACEHOLDER } from "@constants/const";
 import { formSchema } from "@utils/form";
 import { debounce } from "@utils/lib";
 import { Formik } from "formik";
 
+import { Form } from "./styled";
+
 type SearchFormProps = {
-    setQuery: (query: string) => void;
-    setSorting: (sorting: string) => void;
-    setPage: (page: number) => void;
+    setQuery: (_: string) => void;
+    setSorting: (_: string) => void;
+    setPage: (_: number) => void;
 }
 
 export function SearchForm({
@@ -22,7 +25,7 @@ export function SearchForm({
             onSubmit={(values, { setSubmitting }) => {
                 setQuery(values.query);
                 setSorting(values.sort)
-                setPage(1)
+                setPage(FIRST_PAGE)
                 setSubmitting(false);
             }}
         >{({
@@ -32,20 +35,12 @@ export function SearchForm({
             handleSubmit,
             submitForm
         }) =>
-            <form
-                onSubmit={handleSubmit}
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 20
-                }}
-            >
+            <Form onSubmit={handleSubmit}>
                 <Input
                     name="query"
-                    placeholder='Search art, artist, work...'
+                    placeholder={SEARCH_INPUT_PLACEHOLDER}
                     onChange={e => {
                         handleChange(e)
-                        console.log("Called")
                         debounce(submitForm)
                     }}
                     value={values.query}
@@ -60,7 +55,7 @@ export function SearchForm({
                     }}
                     value={values.sort}
                 />
-            </form>
+            </Form>
             }
         </Formik>
     )

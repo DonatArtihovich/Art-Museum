@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Breakpoints } from "@constants/style";
+import styled, { css } from "styled-components";
 
 export const GallerySliderWrapper = styled.div`
     display: flex;
@@ -13,16 +14,18 @@ export const ArtworkCardsList = styled.ul`
     gap: 60px;
     padding: 0;
 
-    @media(max-width: 960px) {
+    @media(max-width: ${Breakpoints.M}px) {
         gap: 30px;    
     }
 `
 
 export const NoArtworksText = styled.p`
-    font-family: var(--second-family);
     font-weight: 400;
     font-size: 24px;
-    color: #393939;
+    ${(props) => css`
+        color: ${props.theme.colors.secondaryText};
+        font-family: ${props.theme.fonts.secondary};
+    `}
     margin: 0;
     text-align: center;
 `

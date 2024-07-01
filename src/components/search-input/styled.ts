@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import { Breakpoints } from "@constants/style"
+import styled, { css } from "styled-components"
 
 export const SearchInputWrapper = styled.div`
     border-radius: 16px;
@@ -10,13 +11,16 @@ export const SearchInputWrapper = styled.div`
     display: flex;
     justify-content: space-between;
 
-    @media(max-width: 960px) {
-        width: 70vw; 
+    @media(max-width: ${Breakpoints.M}px) {
+        width: 500px;
+    }
+
+    @media(max-width: ${Breakpoints.S}px) {
+        width: 370px;
     }
 `
 
 export const SearchInput = styled.input`
-    font-family: var(--font-family);
     font-weight: 400;
     font-size: 14px;
     border: none;
@@ -24,8 +28,10 @@ export const SearchInput = styled.input`
     outline: none;
     width: 90%;
 
+    ${(props) => css`font-family: ${props.theme.fonts.primary};`}
+
     &::placeholder {
-        color: rgba(57, 57, 57, 0.5);
+        ${(props) => css`color: ${props.theme.colors.inputPlaceholderText};`}
     }
 `
 
@@ -50,9 +56,9 @@ export const Wrapper = styled.div`
 
 export const ErrorText = styled.p`
     font-family: var(--second-family);
-    color: red;
+    ${(props) => css`color: ${props.theme.colors.errorText};`}
     font-size: 16px;
     text-transform: underline;
     position: absolute;
-    top: 80%;
+    top: 60px;
 `

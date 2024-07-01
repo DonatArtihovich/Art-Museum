@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react";
+
 import ErrorBoundary from "./index";
 
 describe(ErrorBoundary, () => {
@@ -6,7 +7,7 @@ describe(ErrorBoundary, () => {
         ...jest.requireActual('react-use-error-boundary'),
         useErrorBoundary: jest.fn(() => {
             let error = null;
-            let resetError = jest.fn();
+            const resetError = jest.fn();
 
             const triggerError = (err: Error) => {
                 error = err;

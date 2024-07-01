@@ -1,16 +1,21 @@
+import { ReducedArtworksList } from "@components/reduced-artworks-list";
 import { SectionHeader } from "@components/section-header";
+import {
+    FAVORITES_SECTION_HEADER,
+    FAVORITES_SECTION_SUBTITLE,
+    NO_FAVORITES_TEXT
+} from "@constants/const";
+import imagesObj from "@constants/images";
+import { useRequiredContext } from "@utils/react/hooks";
+import { StorageContext } from "@utils/react/storage-context";
+
 import {
     FavoritesWrapper,
     HeaderIcon,
     HeaderText,
+    NoFavoritesText,
     SpecialHeaderText,
-    SpecialHeaderTextWrapper,
-    NoFavoritesText
-} from "./styled";
-import headerIcon from '@assets/images/favorites-header-icon.svg';
-import { ReducedArtworksList } from "@components/reduced-artworks-list";
-import { useRequiredContext } from "@utils/react/hooks";
-import { StorageContext } from "@utils/react/storage-context";
+    SpecialHeaderTextWrapper} from "./styled";
 
 export default function FavoritesContent() {
     const { savedArtworks } = useRequiredContext(StorageContext);
@@ -20,18 +25,18 @@ export default function FavoritesContent() {
             <HeaderText>
                 Here are your <br />
                 <SpecialHeaderTextWrapper>
-                    <HeaderIcon src={headerIcon} />
-                    <SpecialHeaderText>Favourites</SpecialHeaderText>
+                    <HeaderIcon src={imagesObj.favoritesHeaderIcon} />
+                    <SpecialHeaderText>Favorites</SpecialHeaderText>
                 </SpecialHeaderTextWrapper>
             </HeaderText>
             <section>
                 <SectionHeader
-                    title='Your favorites list'
-                    subtitle='Saved by you'
+                    title={FAVORITES_SECTION_HEADER}
+                    subtitle={FAVORITES_SECTION_SUBTITLE}
                 />
                 {savedArtworks.length
                     ? <ReducedArtworksList artworks={savedArtworks} />
-                    : <NoFavoritesText>You haven't saved anything yet</NoFavoritesText>
+                    : <NoFavoritesText>{NO_FAVORITES_TEXT}</NoFavoritesText>
                 }
             </section>
         </FavoritesWrapper>

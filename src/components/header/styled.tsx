@@ -1,4 +1,11 @@
+import { Breakpoints } from "@constants/style";
+import { HTMLProps } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+
+export const Link = styled(RouterLink)`
+    text-decoration: none;
+`
 
 export const HeaderWrapper = styled.div`
     width: 100%;
@@ -31,16 +38,17 @@ export const LogoImage = styled.img`
     height: 63px;
 `
 
+type NavListProps = {
+    isBurgerActive: boolean;
+    children: React.ReactNode[],
+} & HTMLProps<HTMLUListElement>
+
 export const NavList = styled(
     ({
         isBurgerActive,
         children,
         ...props
-    }: {
-        isBurgerActive: boolean;
-        children: React.ReactNode[],
-        [key: string]: any
-    }) =>
+    }: NavListProps) =>
         <ul {...props}>{children}</ul>
 )`
     display: flex;
@@ -55,14 +63,14 @@ export const NavList = styled(
             left: 0;
         `
         : css`
-            left: -80vw;   
+            left: -390px;   
         `
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         position: absolute;
         flex-direction: column;
-        width: 80vw;
+        width: 390px;
         top: 0;
         bottom: 0;
         align-items: center;
@@ -80,7 +88,7 @@ export const MenuBackground = styled.div`
     bottom: 0;
     right: 0;
     left: 0;
-    height: 100vh;
+    height: 100vh;  
     background: rgb(0, 0, 0, 0.7);
     z-index: 90;
 `
@@ -95,7 +103,10 @@ export const NavListItemTitle = styled.span`
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
-    color: #fff;
+    ${(props) => css`
+        color: ${props.theme.colors.otherText};
+        font-family: ${props.theme.fonts.primary};
+    `}
 `
 
 export const NavListItemImage = styled.img`
@@ -103,9 +114,14 @@ export const NavListItemImage = styled.img`
     height: 25px;
 `
 
+type BurgerButtonProps = {
+    active: boolean,
+    children: React.ReactNode,
+} & HTMLProps<HTMLButtonElement>
+
 export const BurgerButton = styled(
-    ({ active, children, ...props }: { active: boolean, children: React.ReactNode, [key: string]: any }) =>
-        <button {...props}>{children}</button>
+    ({ active, children, ...props }: BurgerButtonProps) =>
+        <button {...props} type='button'>{children}</button>
 )`
     position: absolute;
     top: 50px;
@@ -128,11 +144,11 @@ export const BurgerButton = styled(
         `
     }
 
-    @media(max-width: 700px) {
+    @media(max-width: ${Breakpoints.S}px) {
         display: flex;
     }
 
-    @media(max-width: 440px) {
+    @media(max-width: ${Breakpoints.XS}px) {
         left: 25px;
     }
 `
@@ -140,5 +156,5 @@ export const BurgerButton = styled(
 export const BurgerLine = styled.span`
     width: 100%;
     height: 2px;
-    background-color: var(--secondary-color);
+    ${(props) => css`background-color: ${props.theme.colors.secondary};`}
 `

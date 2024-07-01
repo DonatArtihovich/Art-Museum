@@ -1,60 +1,63 @@
+import { FullArtworkCard } from "@components/artwork-card";
+import Loader from "@components/loader";
+import { Pagination } from "@components/pagination";
+import { NOTHING_FIND_TEXT } from "@constants/const";
+import { Breakpoints } from "@constants/style";
+import { searchArtworksPath } from "@utils/api";
+import { useWindowWidth } from "@utils/react/hooks";
+import { useFetch } from "@utils/react/hooks/use-fetch";
+
 import {
     ArtworkCardsList,
     GallerySliderWrapper,
     NoArtworksText
 } from "./styled";
-import { useEffect, useState } from "react";
-import { searchArtworks } from "@utils/api";
-import { FullArtworkCard } from "@components/artwork-card";
-import Loader from "@components/loader";
-import { useWindowWidth } from "@utils/react/hooks";
-import { Pagination } from "@components/pagination";
 
 type GallerySliderProps = {
     query: string;
     sorting: string;
     page: number;
-    setPage: (page: number) => void;
+    setPage: (_: number) => void;
 }
 
 export default function GallerySlider({ query, sorting, page, setPage }: GallerySliderProps) {
-    const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
-    const [isPending, setIsPending] = useState<boolean>(true);
-
     const windowWidth = useWindowWidth();
-
-    const cardsOnPage = windowWidth > 800
+    const cardsOnPage = windowWidth > Breakpoints.M
         ? 3
-        : windowWidth > 500
+        : windowWidth > Breakpoints.S
             ? 2
-            : 1
+            : 1;
 
-    useEffect(() => {
-        new Promise(async () => {
-            const { pagination: { total_pages: totalPages }, data } = await searchArtworks(page, cardsOnPage, query, sorting);
-            setArtworks({ totalPages, data });
-            setIsPending(false);
-            console.log(data);
-        })
+    const {
+        isLoading,
+        response,
+        error
+    } = useFetch<ArtworksResponse>(searchArtworksPath(page, cardsOnPage, query, sorting))
 
-        return () => setIsPending(true);
-    }, [query, page, sorting, cardsOnPage])
+    if (error) throw error;
+
+    const totalPages = response?.pagination.total_pages;
+    const artworks = response?.data
 
     return (
-        !isPending
-            ? artworks && artworks.data.length
+        !isLoading
+            ? artworks && artworks.length
                 ? <GallerySliderWrapper>
                     <ArtworkCardsList>
-                        {artworks?.data.map(item => <FullArtworkCard artwork={item} key={item.id} />)}
+                        {artworks.map(item =>
+                            <FullArtworkCard
+                                artwork={item}
+                                key={item.id}
+                            />)}
                     </ArtworkCardsList>
-                    {artworks?.totalPages &&
+                    {totalPages &&
                         <Pagination
                             page={page}
                             setPage={setPage}
-                            totalPages={artworks.totalPages}
+                            totalPages={totalPages}
                         />}
                 </GallerySliderWrapper>
-                : <NoArtworksText>We didn't find anything</NoArtworksText>
+                : <NoArtworksText>{NOTHING_FIND_TEXT}</NoArtworksText>
             : <Loader />
     )
 }

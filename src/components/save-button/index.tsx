@@ -1,16 +1,21 @@
-import { ArtworkSaveButton as Button, ArtworkSaveImage } from "./styled";
 import bookmarkImage from '@assets/images/bookmark.svg'
 import bookmarkFilledImage from '@assets/images/bookmark-filled.svg'
 import { useRequiredContext } from "@utils/react/hooks";
 import { StorageContext } from "@utils/react/storage-context";
+
+import { ArtworkSaveButton as Button, ArtworkSaveImage } from "./styled";
 
 type ArtworkSaveButtonProps = {
     artwork: Artwork;
     background?: string;
 }
 
-export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0.3)' }: ArtworkSaveButtonProps) {
-    const { isArtworkSaved, saveArtwork, removeArtwork } = useRequiredContext(StorageContext);
+export function ArtworkSaveButton({ artwork, background }: ArtworkSaveButtonProps) {
+    const {
+        isArtworkSaved,
+        saveArtwork,
+        removeArtwork
+    } = useRequiredContext(StorageContext);
     const isSaved = isArtworkSaved(artwork.id);
 
     const onButtonClick = () => {
@@ -24,7 +29,6 @@ export function ArtworkSaveButton({ artwork, background = 'rgba(251, 215, 178, 0
     return (
         <Button
             onClick={onButtonClick}
-            style={{ background }}
             background={background}
             data-testid="save-button"
         >

@@ -1,6 +1,7 @@
-import { useCallback, useState } from "react";
-import { StorageContext } from "./index";
 import * as Storage from '@utils/storage'
+import { useCallback, useState } from "react";
+
+import { StorageContext } from "./index";
 
 export default function StorageContextProvider({ children }: { children: React.ReactNode }) {
     const [savedArtworks, setSavedArtworks] = useState<Artwork[]>(Storage.getSavedArtworks());

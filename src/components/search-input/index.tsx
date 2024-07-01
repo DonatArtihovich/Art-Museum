@@ -1,17 +1,25 @@
+import imagesObj from "@constants/images";
 import { InputHTMLAttributes } from "react";
-import { SearchInputWrapper, SearchInput, SearchImage, SearchButton, Wrapper, ErrorText } from "./styled";
-import searchImage from '@assets/images/search.svg'
 
-export const Input = ({ error, ...props }: InputHTMLAttributes<HTMLInputElement> &
-{
+import {
+    ErrorText,
+    SearchButton,
+    SearchImage,
+    SearchInput,
+    SearchInputWrapper,
+    Wrapper} from "./styled";
+
+type InputProps = {
     error: string | undefined;
-}) => {
+} & InputHTMLAttributes<HTMLInputElement>
+
+export const Input = ({ error, ...props }: InputProps) => {
     return (
         <Wrapper>
             <SearchInputWrapper>
                 <SearchInput {...props} data-testid="search-input" />
                 <SearchButton type='submit'>
-                    <SearchImage src={searchImage} />
+                    <SearchImage src={imagesObj.searchIcon} />
                 </SearchButton>
             </SearchInputWrapper>
             {error && <ErrorText>{error}</ErrorText>}

@@ -1,23 +1,25 @@
 import Loader from "@components/loader";
 import { ReducedArtworksList } from "@components/reduced-artworks-list";
-import { getArtworks } from "@utils/api";
-import { useEffect, useState } from "react";
+import { ADDITIONAL_ARTWORKS_COUNT, FIRST_PAGE } from "@constants/const";
+import { getArtworksPath } from "@utils/api";
+import { useFetch } from "@utils/react/hooks/use-fetch";
 
 export function AdditionalArtworksSection() {
-    const [artworks, setArtworks] = useState<{ totalPages: number, data: Artwork[] } | null>(null);
-    const [isPending, setIsPending] = useState<boolean>(true);
+    const {
+        isLoading,
+        response,
+        error
+    } = useFetch<ArtworksResponse>(getArtworksPath(FIRST_PAGE, ADDITIONAL_ARTWORKS_COUNT));
 
-    useEffect(() => {
-        new Promise(async () => {
-            const { pagination: { total_pages: totalPages }, data } = await getArtworks(1, 9);
-            setArtworks({ totalPages, data });
-            setIsPending(false);
-        })
+    if (error) {
+        throw error;
+    }
 
-        return () => setIsPending(true);
-    }, [])
+    const artworks = response?.data
 
-    return isPending || !artworks
-        ? <Loader />
-        : <ReducedArtworksList artworks={artworks?.data} />
+    return (
+        isLoading || !artworks
+            ? <Loader />
+            : <ReducedArtworksList artworks={artworks} />
+    )
 }

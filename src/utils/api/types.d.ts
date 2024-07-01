@@ -27,3 +27,7 @@ type FullArtwork = {
     is_public_domain: boolean;
     image_id: string;
 }
+
+type ArtworkResponse = {
+    data: FullArtwork;
+}

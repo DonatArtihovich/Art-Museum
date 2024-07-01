@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import { useFetch } from "@utils/react/hooks/use-fetch";
 import { useParams } from "react-router-dom";
-import { getArtwork } from "@utils/api";
+
 import { ArtworkPageContent } from "./index";
 
 jest.mock("@utils/api");
@@ -9,7 +10,7 @@ jest.mock("react-router-dom", () => ({
     useParams: jest.fn()
 }));
 
-const mockGetArtwork = getArtwork as jest.Mock;
+const mockUseFetch = useFetch as jest.Mock;
 const mockUseParams = useParams as jest.Mock;
 
 describe(ArtworkPageContent, () => {
@@ -19,7 +20,7 @@ describe(ArtworkPageContent, () => {
 
     it("renders loader while fetching data", () => {
         mockUseParams.mockReturnValue({ id: "1" });
-        mockGetArtwork.mockResolvedValueOnce({} as FullArtwork);
+        mockUseFetch.mockResolvedValueOnce({});
 
         render(<ArtworkPageContent />);
 

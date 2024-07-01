@@ -1,17 +1,23 @@
+import { sortingOptions } from "@constants/const";
 import { SelectHTMLAttributes } from "react";
+
 import { ErrorText, SelectOption, SelectWrapper } from "./styled";
 
-export function SearchSelect(props: SelectHTMLAttributes<HTMLSelectElement> &
-{
+type SelectProps = {
     error: string | undefined;
-}
-) {
+} & SelectHTMLAttributes<HTMLSelectElement>
+
+export function SearchSelect(props: SelectProps) {
     return (
         <SelectWrapper {...props} data-testid='search-select'>
-            <SelectOption value="">Choose sorting</SelectOption>
-            <SelectOption value="artist">By artists</SelectOption>
-            <SelectOption value="date">By date</SelectOption>
+            {sortingOptions.map(option =>
+                <SelectOption
+                    value={option.value}
+                    key={option.value}
+                >
+                    {option.title}
+                </SelectOption>)}
             {props.error && <ErrorText>{props.error}</ErrorText>}
-        </SelectWrapper>
+        </SelectWrapper >
     )
 }
